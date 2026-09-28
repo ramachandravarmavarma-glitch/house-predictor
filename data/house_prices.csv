@@ -1,0 +1,651 @@
+price,area,bedrooms,bathrooms,floors,location,main_road,guestroom,basement,air_conditioning,parking,preferred_area,furnishing_status
+31170000,1957,3,3,2,"Koramangala, Bangalore",yes,no,no,no,1,no,Unfurnished
+12130000,1401,3,3,1,"Kothrud, Pune",yes,no,yes,no,1,no,Semi-Furnished
+11150000,1311,3,2,1,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Furnished
+30520000,1786,3,2,2,"Andheri East, Mumbai",yes,no,no,no,2,no,Semi-Furnished
+21750000,2572,3,2,3,"Whitefield, Bangalore",no,no,no,no,2,yes,Semi-Furnished
+29000000,3430,5,4,2,"Whitefield, Bangalore",yes,no,no,no,2,no,Furnished
+11050000,1137,2,1,1,"Whitefield, Bangalore",yes,no,no,yes,1,yes,Furnished
+23830000,2295,3,2,2,"Cyber City, Gurgaon",no,no,no,no,2,no,Furnished
+22710000,1516,2,2,1,"Andheri East, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+13860000,1608,3,3,1,"Gachibowli, Hyderabad",no,no,yes,yes,0,no,Unfurnished
+16880000,1938,3,3,3,"Whitefield, Bangalore",yes,no,no,yes,1,yes,Unfurnished
+11690000,1418,3,3,2,"Kothrud, Pune",yes,yes,no,no,2,no,Semi-Furnished
+20010000,1756,4,3,3,"Cyber City, Gurgaon",yes,yes,no,no,0,no,Furnished
+18740000,1377,2,2,1,"Indiranagar, Bangalore",yes,no,no,yes,0,no,Unfurnished
+22890000,1557,3,2,3,"Indiranagar, Bangalore",yes,yes,no,yes,0,yes,Semi-Furnished
+37160000,2439,3,3,2,"Indiranagar, Bangalore",yes,yes,no,yes,2,yes,Furnished
+29280000,1972,4,4,2,"Koramangala, Bangalore",yes,no,no,no,1,yes,Unfurnished
+38370000,2436,4,4,2,"Andheri East, Mumbai",yes,no,no,yes,1,no,Unfurnished
+39240000,1509,2,2,3,"Bandra West, Mumbai",yes,no,no,no,1,yes,Semi-Furnished
+38100000,2301,3,3,2,"Koramangala, Bangalore",yes,yes,yes,yes,1,no,Semi-Furnished
+20110000,1035,2,1,2,"Andheri East, Mumbai",yes,yes,yes,no,1,yes,Furnished
+17620000,1938,3,2,4,"Whitefield, Bangalore",yes,yes,no,yes,0,no,Furnished
+38530000,2351,4,4,3,"Koramangala, Bangalore",yes,no,yes,no,2,no,Semi-Furnished
+15910000,1020,2,1,2,"Koramangala, Bangalore",yes,no,yes,yes,1,no,Furnished
+33320000,1515,2,2,2,"Bandra West, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+18320000,1938,3,3,2,"Cyber City, Gurgaon",yes,yes,no,yes,0,yes,Unfurnished
+39630000,2635,4,3,1,"Indiranagar, Bangalore",yes,no,no,no,1,yes,Unfurnished
+23260000,1557,2,2,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+35410000,2271,3,3,3,"Andheri East, Mumbai",no,no,no,yes,1,no,Unfurnished
+23310000,3001,4,4,3,"Whitefield, Bangalore",yes,no,no,no,0,no,Unfurnished
+38540000,2305,4,4,1,"Andheri East, Mumbai",yes,no,yes,no,2,no,Semi-Furnished
+24610000,1778,2,2,2,"Indiranagar, Bangalore",yes,yes,no,yes,0,no,Furnished
+17200000,2157,3,3,1,"Whitefield, Bangalore",yes,yes,no,no,1,no,Furnished
+13140000,1542,2,2,4,"Kothrud, Pune",no,no,no,yes,2,no,Semi-Furnished
+14680000,1963,3,2,4,"Kothrud, Pune",yes,no,no,no,1,no,Furnished
+18830000,1808,3,3,2,"Cyber City, Gurgaon",yes,yes,no,no,2,no,Furnished
+29460000,2134,3,3,3,"Koramangala, Bangalore",yes,yes,yes,yes,1,no,Furnished
+13470000,1652,3,2,2,"Whitefield, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+17580000,2174,3,3,2,"Gachibowli, Hyderabad",yes,no,no,no,2,no,Unfurnished
+34220000,1647,3,3,1,"Bandra West, Mumbai",yes,no,no,no,1,no,Furnished
+19800000,2528,4,3,2,"Whitefield, Bangalore",yes,no,yes,no,1,no,Semi-Furnished
+41090000,1703,3,3,2,"Bandra West, Mumbai",yes,no,no,no,2,yes,Semi-Furnished
+8330000,868,2,2,2,"Whitefield, Bangalore",yes,no,no,no,1,no,Furnished
+12880000,1325,3,3,2,"Kothrud, Pune",yes,no,yes,yes,1,no,Unfurnished
+29910000,1919,2,1,4,"Indiranagar, Bangalore",yes,no,no,no,1,yes,Semi-Furnished
+23520000,3212,4,3,1,"Gachibowli, Hyderabad",yes,no,no,no,2,no,Semi-Furnished
+37500000,2496,3,2,2,"Koramangala, Bangalore",no,yes,no,no,3,no,Unfurnished
+13880000,803,1,1,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Furnished
+17580000,1100,2,2,2,"Andheri East, Mumbai",no,no,no,no,1,yes,Semi-Furnished
+33960000,2748,3,2,2,"Indiranagar, Bangalore",yes,no,no,no,2,no,Furnished
+17900000,2347,4,4,1,"Kothrud, Pune",yes,no,no,yes,0,no,Unfurnished
+36610000,3788,4,3,1,"Cyber City, Gurgaon",yes,no,yes,yes,0,no,Semi-Furnished
+13330000,1624,4,3,2,"Kothrud, Pune",yes,no,no,no,2,no,Semi-Furnished
+12290000,1408,2,2,2,"Kothrud, Pune",yes,no,yes,no,2,no,Furnished
+30470000,1953,3,3,1,"Andheri East, Mumbai",yes,no,yes,yes,2,no,Semi-Furnished
+11610000,1614,3,2,2,"Kothrud, Pune",yes,no,no,no,1,no,Unfurnished
+21480000,2661,4,3,2,"Whitefield, Bangalore",no,no,no,no,0,no,Semi-Furnished
+23460000,1595,2,1,2,"Indiranagar, Bangalore",yes,yes,yes,yes,1,no,Semi-Furnished
+15450000,1737,3,3,3,"Whitefield, Bangalore",yes,no,no,yes,0,yes,Semi-Furnished
+21110000,1340,2,2,1,"Koramangala, Bangalore",yes,no,no,yes,1,no,Unfurnished
+32230000,2440,3,2,1,"Koramangala, Bangalore",yes,yes,yes,no,2,no,Semi-Furnished
+19520000,1370,3,2,3,"Indiranagar, Bangalore",yes,no,yes,yes,0,no,Unfurnished
+23420000,2187,4,3,2,"Cyber City, Gurgaon",yes,no,no,yes,2,yes,Unfurnished
+47100000,3399,5,4,2,"Koramangala, Bangalore",no,no,no,no,1,no,Semi-Furnished
+16550000,971,2,2,3,"Koramangala, Bangalore",yes,no,no,yes,1,yes,Furnished
+53840000,3049,4,3,3,"Andheri East, Mumbai",yes,no,no,yes,0,yes,Semi-Furnished
+18140000,2094,3,3,4,"Whitefield, Bangalore",yes,yes,no,yes,1,no,Unfurnished
+15040000,1267,2,2,2,"Cyber City, Gurgaon",no,no,yes,no,0,no,Furnished
+18180000,1978,4,3,2,"Whitefield, Bangalore",yes,no,no,no,3,no,Semi-Furnished
+19480000,2416,3,3,2,"Kothrud, Pune",yes,no,no,yes,2,yes,Unfurnished
+15210000,1439,2,2,1,"Cyber City, Gurgaon",yes,yes,no,no,1,no,Semi-Furnished
+35640000,2229,2,2,2,"Indiranagar, Bangalore",yes,yes,yes,no,0,yes,Semi-Furnished
+25510000,3136,4,4,1,"Whitefield, Bangalore",yes,no,no,yes,3,no,Furnished
+16740000,1594,2,2,3,"Cyber City, Gurgaon",yes,no,yes,yes,1,no,Furnished
+11210000,1335,3,3,2,"Gachibowli, Hyderabad",yes,no,no,yes,0,no,Unfurnished
+15090000,1826,3,2,2,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Furnished
+20050000,1943,3,3,2,"Cyber City, Gurgaon",yes,no,yes,no,3,yes,Furnished
+22760000,2707,5,4,1,"Whitefield, Bangalore",yes,no,no,yes,0,no,Unfurnished
+28810000,1806,2,2,1,"Koramangala, Bangalore",yes,no,yes,no,0,no,Semi-Furnished
+15150000,1643,3,2,2,"Whitefield, Bangalore",yes,no,no,yes,3,no,Unfurnished
+13280000,1323,2,1,1,"Cyber City, Gurgaon",yes,yes,no,yes,0,no,Unfurnished
+18040000,1023,3,3,2,"Andheri East, Mumbai",yes,no,yes,no,0,yes,Furnished
+21280000,1187,3,2,3,"Koramangala, Bangalore",yes,yes,yes,yes,1,no,Furnished
+10640000,1185,2,2,3,"Whitefield, Bangalore",yes,no,no,no,2,no,Semi-Furnished
+29800000,1743,4,3,2,"Koramangala, Bangalore",no,no,yes,yes,1,no,Semi-Furnished
+20020000,1089,2,1,1,"Koramangala, Bangalore",yes,no,yes,no,3,yes,Furnished
+8160000,650,2,1,3,"Gachibowli, Hyderabad",yes,yes,no,yes,1,yes,Semi-Furnished
+29790000,1872,3,2,3,"Andheri East, Mumbai",yes,no,no,no,0,no,Furnished
+36190000,3372,4,4,1,"Cyber City, Gurgaon",yes,yes,no,yes,3,no,Unfurnished
+68220000,2733,3,2,2,"Bandra West, Mumbai",yes,no,yes,no,1,yes,Furnished
+17200000,1738,4,4,1,"Whitefield, Bangalore",yes,yes,yes,yes,1,yes,Furnished
+12430000,1276,3,3,3,"Gachibowli, Hyderabad",yes,yes,yes,no,1,no,Furnished
+29810000,4106,4,3,4,"Gachibowli, Hyderabad",yes,no,yes,yes,1,no,Unfurnished
+31920000,1945,4,4,1,"Andheri East, Mumbai",yes,yes,no,no,0,no,Semi-Furnished
+21820000,2038,3,3,3,"Cyber City, Gurgaon",yes,no,no,yes,0,no,Unfurnished
+41360000,1815,4,4,2,"Bandra West, Mumbai",yes,no,yes,yes,1,yes,Semi-Furnished
+29530000,1886,2,1,4,"Andheri East, Mumbai",yes,yes,no,no,2,no,Semi-Furnished
+34390000,1576,3,2,2,"Bandra West, Mumbai",no,no,no,yes,1,no,Furnished
+16190000,1746,3,3,3,"Whitefield, Bangalore",no,no,no,yes,3,yes,Semi-Furnished
+25050000,3056,3,3,1,"Whitefield, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+22700000,2833,4,4,1,"Whitefield, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+14160000,854,1,1,1,"Andheri East, Mumbai",yes,no,yes,yes,0,no,Furnished
+17270000,1133,2,2,4,"Koramangala, Bangalore",yes,yes,yes,no,0,yes,Unfurnished
+24260000,1446,2,2,3,"Andheri East, Mumbai",yes,no,yes,no,1,no,Furnished
+20730000,2579,4,3,3,"Kothrud, Pune",yes,no,yes,yes,2,no,Unfurnished
+38200000,2854,4,3,4,"Indiranagar, Bangalore",yes,no,no,no,2,no,Furnished
+55010000,2413,3,2,1,"Bandra West, Mumbai",yes,no,no,no,3,no,Semi-Furnished
+11730000,1265,3,3,2,"Gachibowli, Hyderabad",yes,no,no,no,0,yes,Semi-Furnished
+21740000,1587,2,1,1,"Indiranagar, Bangalore",yes,no,no,yes,2,yes,Semi-Furnished
+17580000,2242,4,3,1,"Whitefield, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+30360000,1755,4,4,1,"Koramangala, Bangalore",yes,no,no,yes,0,yes,Semi-Furnished
+23180000,1674,3,2,2,"Indiranagar, Bangalore",no,no,yes,yes,2,no,Semi-Furnished
+13650000,1682,3,2,1,"Kothrud, Pune",yes,no,yes,yes,1,no,Semi-Furnished
+28840000,2760,5,3,1,"Cyber City, Gurgaon",yes,no,no,no,0,no,Semi-Furnished
+43280000,2317,3,3,1,"Andheri East, Mumbai",no,no,yes,no,1,no,Unfurnished
+15920000,1713,2,2,1,"Cyber City, Gurgaon",no,yes,no,no,1,no,Furnished
+23460000,2126,3,2,4,"Cyber City, Gurgaon",yes,no,no,no,2,yes,Semi-Furnished
+18210000,1206,3,3,3,"Indiranagar, Bangalore",yes,yes,no,yes,1,no,Semi-Furnished
+13550000,1588,2,2,4,"Kothrud, Pune",yes,no,no,yes,3,no,Semi-Furnished
+40500000,2670,4,3,2,"Andheri East, Mumbai",yes,no,yes,yes,0,no,Semi-Furnished
+11600000,1066,3,3,1,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Semi-Furnished
+19150000,2327,4,4,3,"Kothrud, Pune",yes,no,yes,no,1,no,Furnished
+12490000,851,1,1,1,"Koramangala, Bangalore",yes,no,no,no,1,yes,Furnished
+28980000,3230,3,3,1,"Whitefield, Bangalore",yes,yes,no,yes,1,yes,Furnished
+23340000,1575,3,2,1,"Indiranagar, Bangalore",yes,no,no,yes,2,yes,Semi-Furnished
+52700000,2177,3,3,1,"Bandra West, Mumbai",yes,yes,no,yes,2,no,Semi-Furnished
+20810000,1982,2,2,1,"Cyber City, Gurgaon",yes,no,yes,yes,3,yes,Unfurnished
+20150000,2006,2,1,2,"Cyber City, Gurgaon",yes,no,no,no,2,yes,Semi-Furnished
+19460000,2113,4,3,2,"Whitefield, Bangalore",yes,yes,no,no,2,no,Furnished
+15880000,1000,3,2,1,"Andheri East, Mumbai",yes,no,no,no,1,yes,Unfurnished
+46460000,2019,4,3,1,"Bandra West, Mumbai",yes,no,yes,no,2,no,Unfurnished
+25500000,1790,4,4,3,"Indiranagar, Bangalore",no,no,no,yes,1,yes,Semi-Furnished
+13350000,1578,2,1,1,"Whitefield, Bangalore",yes,no,no,yes,1,yes,Semi-Furnished
+19020000,1446,2,2,1,"Koramangala, Bangalore",yes,yes,yes,no,1,no,Unfurnished
+17440000,2036,3,3,3,"Kothrud, Pune",yes,yes,no,no,1,no,Semi-Furnished
+18950000,1341,2,1,1,"Koramangala, Bangalore",yes,no,no,yes,1,no,Unfurnished
+45230000,2654,4,4,1,"Andheri East, Mumbai",yes,no,no,no,3,no,Furnished
+19990000,2229,3,2,2,"Gachibowli, Hyderabad",yes,yes,no,no,1,yes,Furnished
+27380000,2077,3,2,1,"Koramangala, Bangalore",yes,no,no,no,0,no,Semi-Furnished
+20250000,2617,5,4,2,"Kothrud, Pune",yes,yes,no,no,1,yes,Semi-Furnished
+7700000,946,1,1,3,"Kothrud, Pune",no,no,no,no,0,no,Unfurnished
+18450000,1192,3,2,1,"Indiranagar, Bangalore",yes,no,yes,no,0,no,Unfurnished
+52630000,2262,3,2,2,"Bandra West, Mumbai",yes,no,yes,yes,0,no,Semi-Furnished
+22630000,1474,2,2,2,"Koramangala, Bangalore",no,no,no,yes,1,no,Furnished
+22880000,1537,3,3,1,"Koramangala, Bangalore",yes,no,yes,yes,1,no,Unfurnished
+11710000,1133,2,1,2,"Whitefield, Bangalore",yes,yes,yes,yes,2,no,Semi-Furnished
+21210000,1342,2,2,1,"Andheri East, Mumbai",yes,yes,no,no,2,no,Furnished
+36230000,2674,3,3,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+18750000,2244,3,3,1,"Whitefield, Bangalore",yes,no,yes,yes,1,yes,Semi-Furnished
+28200000,2029,3,2,2,"Indiranagar, Bangalore",yes,no,no,no,1,yes,Unfurnished
+12490000,1558,3,2,1,"Kothrud, Pune",yes,no,yes,yes,2,no,Semi-Furnished
+28230000,1987,4,3,3,"Indiranagar, Bangalore",yes,no,no,yes,0,no,Semi-Furnished
+21700000,2752,4,4,1,"Whitefield, Bangalore",yes,yes,no,yes,0,no,Unfurnished
+34480000,1487,3,3,2,"Bandra West, Mumbai",yes,no,no,yes,2,no,Semi-Furnished
+16000000,1884,3,2,2,"Kothrud, Pune",yes,no,yes,yes,1,no,Semi-Furnished
+44880000,3299,4,3,2,"Indiranagar, Bangalore",yes,no,no,no,0,no,Furnished
+18530000,2403,2,2,2,"Gachibowli, Hyderabad",yes,no,no,yes,0,no,Semi-Furnished
+14530000,1565,2,2,2,"Gachibowli, Hyderabad",yes,yes,no,no,3,no,Furnished
+34660000,2338,3,3,3,"Indiranagar, Bangalore",yes,no,yes,yes,2,no,Furnished
+11010000,1060,2,2,3,"Gachibowli, Hyderabad",yes,no,no,yes,2,no,Semi-Furnished
+26880000,1859,2,2,1,"Koramangala, Bangalore",yes,no,no,yes,1,no,Furnished
+36030000,2338,2,2,2,"Andheri East, Mumbai",yes,yes,no,no,1,yes,Semi-Furnished
+33050000,2164,3,3,3,"Andheri East, Mumbai",no,yes,no,yes,3,no,Furnished
+37010000,2330,4,3,4,"Andheri East, Mumbai",yes,no,no,no,3,no,Semi-Furnished
+22070000,2499,3,3,3,"Whitefield, Bangalore",yes,no,no,no,0,no,Furnished
+25080000,2220,3,3,2,"Cyber City, Gurgaon",yes,no,yes,no,2,no,Furnished
+33570000,2199,3,2,1,"Koramangala, Bangalore",yes,no,no,no,0,no,Furnished
+26320000,2044,3,3,2,"Indiranagar, Bangalore",yes,no,yes,yes,0,yes,Unfurnished
+12180000,1289,2,2,2,"Whitefield, Bangalore",yes,no,no,yes,1,no,Unfurnished
+38660000,2673,4,4,2,"Andheri East, Mumbai",yes,no,yes,yes,1,no,Furnished
+16570000,1881,3,2,2,"Gachibowli, Hyderabad",yes,yes,no,no,3,no,Unfurnished
+20160000,2383,2,1,3,"Whitefield, Bangalore",yes,no,yes,yes,0,yes,Semi-Furnished
+42010000,2581,3,3,2,"Andheri East, Mumbai",yes,no,no,yes,1,no,Unfurnished
+20400000,1592,2,1,3,"Indiranagar, Bangalore",no,yes,no,no,2,no,Semi-Furnished
+15590000,1639,2,2,2,"Gachibowli, Hyderabad",yes,yes,yes,yes,2,no,Semi-Furnished
+21470000,1713,2,2,1,"Indiranagar, Bangalore",yes,no,yes,no,0,no,Furnished
+21830000,2841,4,3,2,"Gachibowli, Hyderabad",yes,no,yes,no,1,no,Semi-Furnished
+20670000,1384,3,3,3,"Koramangala, Bangalore",yes,no,no,yes,1,no,Unfurnished
+20560000,3006,4,4,1,"Kothrud, Pune",yes,yes,no,yes,0,no,Semi-Furnished
+18240000,2037,3,2,1,"Whitefield, Bangalore",yes,no,no,yes,3,no,Furnished
+36490000,2085,3,3,4,"Koramangala, Bangalore",yes,no,yes,no,2,yes,Furnished
+24800000,2543,5,4,1,"Whitefield, Bangalore",yes,yes,no,no,0,no,Semi-Furnished
+14900000,1960,3,3,2,"Kothrud, Pune",yes,no,no,no,0,no,Semi-Furnished
+27890000,2683,3,3,2,"Cyber City, Gurgaon",yes,no,no,no,0,no,Semi-Furnished
+22820000,1591,3,3,2,"Indiranagar, Bangalore",yes,no,no,no,2,no,Unfurnished
+25150000,2973,3,3,2,"Gachibowli, Hyderabad",no,yes,yes,yes,0,yes,Furnished
+18560000,1632,3,3,1,"Cyber City, Gurgaon",yes,yes,yes,yes,1,yes,Semi-Furnished
+47590000,3011,4,4,2,"Andheri East, Mumbai",yes,no,yes,no,1,no,Unfurnished
+30030000,1647,4,4,2,"Andheri East, Mumbai",yes,yes,yes,yes,1,yes,Semi-Furnished
+23680000,1730,3,2,2,"Indiranagar, Bangalore",no,no,yes,yes,0,no,Furnished
+12270000,1327,3,3,1,"Whitefield, Bangalore",yes,yes,yes,no,0,no,Semi-Furnished
+12450000,1451,3,2,2,"Kothrud, Pune",yes,no,no,yes,3,no,Unfurnished
+16120000,1884,2,2,1,"Kothrud, Pune",yes,yes,no,no,2,yes,Furnished
+30610000,2062,3,2,1,"Andheri East, Mumbai",yes,no,no,no,2,yes,Unfurnished
+38110000,2618,4,4,1,"Koramangala, Bangalore",yes,no,no,yes,0,no,Unfurnished
+29870000,1771,3,3,1,"Koramangala, Bangalore",yes,yes,no,no,1,no,Furnished
+12060000,1268,2,2,3,"Gachibowli, Hyderabad",no,no,yes,yes,1,no,Semi-Furnished
+18890000,2165,4,4,1,"Kothrud, Pune",yes,yes,no,yes,1,no,Semi-Furnished
+22150000,2017,3,3,3,"Cyber City, Gurgaon",yes,no,yes,yes,2,no,Semi-Furnished
+23910000,2244,3,3,4,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Unfurnished
+12430000,1523,2,2,2,"Gachibowli, Hyderabad",yes,no,no,no,0,no,Unfurnished
+15280000,1583,3,2,1,"Whitefield, Bangalore",no,no,no,yes,2,no,Furnished
+21240000,1523,3,2,2,"Indiranagar, Bangalore",yes,no,yes,yes,3,yes,Semi-Furnished
+21630000,2785,4,4,3,"Kothrud, Pune",yes,yes,yes,yes,0,yes,Semi-Furnished
+49890000,2983,3,3,2,"Andheri East, Mumbai",yes,yes,no,no,1,no,Semi-Furnished
+13430000,1560,3,2,1,"Whitefield, Bangalore",yes,no,yes,no,1,no,Semi-Furnished
+13390000,1571,2,1,2,"Whitefield, Bangalore",yes,no,no,yes,1,no,Furnished
+18560000,2347,3,3,3,"Gachibowli, Hyderabad",yes,no,no,yes,0,yes,Semi-Furnished
+24650000,3095,3,2,3,"Whitefield, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+42430000,3322,4,4,1,"Indiranagar, Bangalore",no,no,no,yes,3,yes,Furnished
+27650000,1537,3,3,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Unfurnished
+12360000,1666,2,2,1,"Gachibowli, Hyderabad",no,no,yes,no,0,no,Unfurnished
+16740000,2098,3,2,1,"Gachibowli, Hyderabad",yes,no,no,yes,1,no,Semi-Furnished
+31470000,2132,3,3,3,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Furnished
+16450000,1794,3,3,1,"Gachibowli, Hyderabad",yes,yes,no,yes,2,no,Semi-Furnished
+21440000,1435,2,2,1,"Indiranagar, Bangalore",yes,no,yes,no,1,no,Furnished
+30080000,1885,3,3,1,"Koramangala, Bangalore",yes,no,no,yes,0,no,Furnished
+24610000,3321,4,3,3,"Gachibowli, Hyderabad",yes,no,no,no,0,no,Semi-Furnished
+13530000,1591,2,2,3,"Gachibowli, Hyderabad",yes,no,no,no,2,no,Furnished
+22800000,2055,2,2,2,"Cyber City, Gurgaon",yes,no,no,yes,1,yes,Furnished
+31990000,4056,4,4,3,"Gachibowli, Hyderabad",yes,no,yes,no,2,yes,Furnished
+25730000,1583,3,2,1,"Andheri East, Mumbai",yes,no,no,no,0,yes,Furnished
+21280000,2383,3,3,2,"Whitefield, Bangalore",yes,no,no,no,1,yes,Furnished
+51330000,3370,4,4,2,"Koramangala, Bangalore",yes,no,no,yes,1,no,Unfurnished
+29070000,2315,3,2,1,"Indiranagar, Bangalore",yes,no,no,yes,3,no,Furnished
+39870000,2719,4,3,2,"Indiranagar, Bangalore",yes,no,yes,no,3,no,Furnished
+17560000,2489,2,2,3,"Kothrud, Pune",no,no,no,no,0,no,Furnished
+33560000,2254,3,2,1,"Koramangala, Bangalore",yes,no,no,no,1,no,Unfurnished
+22770000,2949,5,4,1,"Kothrud, Pune",yes,no,no,no,0,no,Semi-Furnished
+39740000,2358,3,2,1,"Andheri East, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+21240000,1800,4,4,1,"Cyber City, Gurgaon",yes,no,yes,no,1,yes,Unfurnished
+36090000,2003,3,3,3,"Andheri East, Mumbai",yes,no,no,yes,2,yes,Semi-Furnished
+37170000,2156,2,2,2,"Andheri East, Mumbai",yes,no,yes,no,3,no,Semi-Furnished
+40110000,1663,4,3,2,"Bandra West, Mumbai",no,no,no,no,1,no,Furnished
+28490000,2033,2,2,3,"Indiranagar, Bangalore",yes,no,no,no,1,yes,Semi-Furnished
+17230000,1937,3,3,1,"Gachibowli, Hyderabad",yes,no,no,no,2,yes,Semi-Furnished
+36120000,2356,2,2,2,"Koramangala, Bangalore",yes,no,no,yes,2,no,Semi-Furnished
+29970000,3679,4,4,2,"Whitefield, Bangalore",yes,no,no,no,0,yes,Furnished
+16770000,2073,3,2,2,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Semi-Furnished
+43690000,3122,4,4,4,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Furnished
+17160000,2328,3,2,3,"Kothrud, Pune",yes,no,yes,no,0,no,Furnished
+17260000,2030,3,3,2,"Kothrud, Pune",no,yes,yes,yes,0,no,Semi-Furnished
+12890000,1632,2,1,3,"Kothrud, Pune",yes,no,yes,yes,0,no,Unfurnished
+33310000,2035,2,2,1,"Koramangala, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+15790000,1994,3,2,1,"Whitefield, Bangalore",yes,no,yes,yes,1,no,Semi-Furnished
+10860000,1488,2,2,1,"Kothrud, Pune",yes,no,no,no,0,no,Furnished
+37330000,1567,3,2,1,"Bandra West, Mumbai",yes,no,no,no,0,yes,Furnished
+18090000,2162,3,3,2,"Kothrud, Pune",yes,no,no,no,2,no,Furnished
+24040000,3111,4,3,2,"Kothrud, Pune",yes,yes,no,no,2,no,Semi-Furnished
+20440000,1864,3,2,3,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Furnished
+17210000,1114,2,2,2,"Koramangala, Bangalore",yes,no,yes,yes,1,no,Furnished
+11690000,808,1,1,2,"Koramangala, Bangalore",no,yes,no,no,3,no,Unfurnished
+14690000,1319,2,1,1,"Cyber City, Gurgaon",yes,no,no,yes,0,yes,Furnished
+31210000,2403,3,2,1,"Koramangala, Bangalore",no,no,yes,no,0,no,Semi-Furnished
+16510000,1192,3,3,2,"Indiranagar, Bangalore",no,no,no,no,1,no,Semi-Furnished
+40870000,2529,4,3,2,"Andheri East, Mumbai",yes,yes,no,no,0,no,Semi-Furnished
+16760000,2360,3,2,3,"Kothrud, Pune",yes,no,no,no,1,no,Semi-Furnished
+18470000,1843,4,3,1,"Gachibowli, Hyderabad",yes,no,yes,yes,2,yes,Semi-Furnished
+20050000,1079,3,3,1,"Andheri East, Mumbai",yes,no,no,yes,1,no,Furnished
+13400000,1493,3,3,2,"Whitefield, Bangalore",yes,no,yes,no,1,yes,Semi-Furnished
+27490000,1755,3,3,1,"Andheri East, Mumbai",yes,no,yes,yes,3,no,Unfurnished
+13540000,2144,3,3,1,"Kothrud, Pune",no,no,no,no,0,no,Furnished
+11260000,1206,2,1,2,"Whitefield, Bangalore",yes,no,no,yes,0,yes,Furnished
+48070000,3003,4,3,1,"Andheri East, Mumbai",yes,no,no,no,1,no,Unfurnished
+22260000,2137,3,3,2,"Cyber City, Gurgaon",yes,no,yes,no,1,yes,Semi-Furnished
+17510000,2218,3,2,1,"Gachibowli, Hyderabad",no,no,no,no,0,yes,Semi-Furnished
+17330000,2354,3,2,1,"Gachibowli, Hyderabad",yes,yes,no,yes,1,no,Semi-Furnished
+24530000,2904,4,3,2,"Gachibowli, Hyderabad",no,yes,no,yes,1,no,Furnished
+29510000,2037,3,2,3,"Koramangala, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+36410000,2404,3,3,2,"Koramangala, Bangalore",yes,yes,yes,yes,1,no,Semi-Furnished
+15620000,1501,2,1,3,"Cyber City, Gurgaon",yes,no,no,no,1,no,Furnished
+30100000,3327,5,4,1,"Cyber City, Gurgaon",yes,no,no,no,0,no,Semi-Furnished
+19930000,1991,3,2,3,"Cyber City, Gurgaon",yes,no,yes,no,1,yes,Unfurnished
+12700000,1499,2,2,1,"Kothrud, Pune",yes,no,yes,no,0,yes,Semi-Furnished
+27870000,1632,2,1,2,"Andheri East, Mumbai",yes,no,yes,yes,3,no,Furnished
+16460000,926,1,1,2,"Andheri East, Mumbai",yes,yes,yes,no,1,no,Semi-Furnished
+17410000,1628,3,2,3,"Cyber City, Gurgaon",yes,no,no,no,1,no,Semi-Furnished
+5920000,728,1,1,2,"Gachibowli, Hyderabad",no,no,no,no,2,no,Unfurnished
+16910000,2462,2,2,1,"Gachibowli, Hyderabad",yes,no,yes,no,1,no,Semi-Furnished
+22980000,2196,3,3,1,"Cyber City, Gurgaon",yes,no,yes,no,1,yes,Furnished
+12470000,1346,2,2,3,"Kothrud, Pune",yes,no,no,yes,2,yes,Semi-Furnished
+31690000,1876,3,2,2,"Koramangala, Bangalore",yes,no,no,yes,2,no,Semi-Furnished
+29820000,1904,3,2,3,"Koramangala, Bangalore",yes,no,no,no,1,no,Furnished
+11510000,1251,2,1,1,"Whitefield, Bangalore",yes,no,no,yes,0,no,Semi-Furnished
+29730000,1767,3,2,1,"Andheri East, Mumbai",yes,yes,no,no,1,yes,Semi-Furnished
+16540000,1924,4,3,1,"Whitefield, Bangalore",yes,no,yes,no,2,no,Semi-Furnished
+43910000,1751,3,2,4,"Bandra West, Mumbai",yes,yes,yes,yes,0,yes,Furnished
+25350000,1498,3,2,2,"Andheri East, Mumbai",yes,no,no,yes,0,yes,Semi-Furnished
+19490000,1329,2,2,4,"Koramangala, Bangalore",yes,no,no,no,2,no,Unfurnished
+26720000,1730,3,3,1,"Andheri East, Mumbai",yes,no,no,yes,0,no,Unfurnished
+13080000,1560,2,2,2,"Whitefield, Bangalore",yes,no,no,no,2,no,Unfurnished
+21100000,2302,3,2,2,"Whitefield, Bangalore",yes,no,no,no,1,yes,Unfurnished
+26540000,2964,5,3,1,"Cyber City, Gurgaon",yes,no,yes,no,1,no,Furnished
+40190000,2570,4,4,3,"Koramangala, Bangalore",no,no,no,no,0,no,Semi-Furnished
+16740000,1946,2,1,4,"Whitefield, Bangalore",yes,no,yes,yes,2,no,Semi-Furnished
+22590000,1518,2,1,3,"Andheri East, Mumbai",yes,yes,yes,no,1,no,Unfurnished
+23510000,2547,4,4,2,"Gachibowli, Hyderabad",yes,no,no,yes,1,yes,Furnished
+33310000,2348,3,3,1,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Unfurnished
+48310000,2893,3,3,1,"Andheri East, Mumbai",yes,yes,no,no,2,no,Semi-Furnished
+19480000,2038,3,2,4,"Whitefield, Bangalore",yes,no,no,no,3,yes,Unfurnished
+30970000,3266,4,3,1,"Whitefield, Bangalore",yes,yes,yes,yes,1,no,Furnished
+34720000,2038,3,3,2,"Andheri East, Mumbai",yes,no,yes,no,1,yes,Furnished
+24390000,1515,3,2,2,"Andheri East, Mumbai",yes,no,no,no,3,no,Unfurnished
+26720000,1610,2,2,2,"Andheri East, Mumbai",yes,no,no,yes,1,no,Furnished
+21930000,2266,4,4,4,"Gachibowli, Hyderabad",yes,yes,no,yes,1,yes,Unfurnished
+11530000,1559,2,2,1,"Kothrud, Pune",yes,yes,no,no,0,no,Furnished
+49170000,3259,5,4,1,"Andheri East, Mumbai",yes,yes,no,no,2,no,Semi-Furnished
+31120000,2203,3,2,1,"Koramangala, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+18460000,1931,4,4,2,"Cyber City, Gurgaon",yes,no,yes,no,1,no,Semi-Furnished
+28480000,1985,4,4,1,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+35640000,1745,3,3,1,"Bandra West, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+10740000,1017,3,2,3,"Whitefield, Bangalore",yes,no,yes,no,1,no,Furnished
+15990000,1611,3,2,4,"Whitefield, Bangalore",yes,no,no,no,0,yes,Furnished
+23200000,3119,4,4,1,"Kothrud, Pune",yes,no,yes,yes,1,no,Semi-Furnished
+23420000,2056,3,3,2,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Semi-Furnished
+20920000,2668,4,4,3,"Gachibowli, Hyderabad",yes,no,yes,yes,1,no,Semi-Furnished
+66140000,2694,3,2,1,"Bandra West, Mumbai",yes,no,no,no,2,no,Semi-Furnished
+28470000,1882,3,3,1,"Indiranagar, Bangalore",yes,yes,yes,yes,2,no,Semi-Furnished
+17660000,2361,3,3,1,"Whitefield, Bangalore",yes,no,no,no,2,no,Semi-Furnished
+19520000,1057,3,3,2,"Indiranagar, Bangalore",yes,yes,yes,yes,0,no,Furnished
+47060000,3032,4,3,1,"Andheri East, Mumbai",yes,no,yes,yes,0,no,Semi-Furnished
+22220000,2947,4,3,4,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Unfurnished
+16800000,2245,3,3,2,"Gachibowli, Hyderabad",yes,no,no,no,3,no,Unfurnished
+28660000,2081,3,2,2,"Indiranagar, Bangalore",yes,no,yes,no,2,no,Semi-Furnished
+15460000,1890,3,3,1,"Kothrud, Pune",no,yes,yes,yes,2,no,Semi-Furnished
+22060000,2772,3,3,2,"Gachibowli, Hyderabad",yes,no,no,no,1,yes,Unfurnished
+37250000,2451,3,2,2,"Andheri East, Mumbai",no,no,no,yes,1,no,Semi-Furnished
+12350000,650,1,1,3,"Andheri East, Mumbai",yes,no,no,yes,1,no,Furnished
+40800000,1681,4,4,3,"Bandra West, Mumbai",yes,no,yes,no,0,yes,Furnished
+16550000,1270,2,1,2,"Indiranagar, Bangalore",yes,no,no,yes,0,yes,Semi-Furnished
+19430000,1185,2,2,3,"Koramangala, Bangalore",yes,no,yes,yes,3,no,Unfurnished
+19540000,2762,4,4,3,"Gachibowli, Hyderabad",yes,no,yes,no,0,no,Semi-Furnished
+16240000,1876,2,1,3,"Whitefield, Bangalore",yes,yes,no,no,0,no,Furnished
+17080000,2233,3,2,1,"Whitefield, Bangalore",yes,no,no,no,0,no,Furnished
+17420000,1957,3,2,1,"Whitefield, Bangalore",no,no,no,yes,3,yes,Unfurnished
+10930000,1191,2,1,1,"Whitefield, Bangalore",no,no,yes,yes,1,no,Unfurnished
+11400000,1066,2,2,2,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Semi-Furnished
+16200000,1643,4,4,2,"Gachibowli, Hyderabad",yes,no,no,no,2,yes,Semi-Furnished
+39410000,1690,4,3,2,"Bandra West, Mumbai",yes,no,no,no,1,no,Furnished
+16340000,1689,3,2,3,"Whitefield, Bangalore",yes,no,yes,no,1,no,Unfurnished
+40810000,1706,3,2,3,"Bandra West, Mumbai",yes,yes,yes,yes,0,yes,Unfurnished
+79060000,3593,4,4,3,"Bandra West, Mumbai",yes,no,no,no,0,yes,Furnished
+39260000,2655,4,3,1,"Indiranagar, Bangalore",yes,yes,no,yes,2,yes,Semi-Furnished
+48190000,2066,3,3,2,"Bandra West, Mumbai",yes,yes,yes,no,2,no,Furnished
+25280000,1861,2,2,1,"Koramangala, Bangalore",no,no,no,no,1,no,Furnished
+29490000,1883,3,3,1,"Andheri East, Mumbai",yes,no,yes,no,1,no,Furnished
+36900000,2422,3,2,1,"Andheri East, Mumbai",no,no,no,no,1,no,Furnished
+16900000,1855,3,3,1,"Whitefield, Bangalore",yes,no,yes,no,0,no,Semi-Furnished
+33240000,2564,5,3,2,"Koramangala, Bangalore",yes,no,no,no,0,no,Semi-Furnished
+34030000,2140,4,3,3,"Andheri East, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+59340000,3604,5,4,1,"Andheri East, Mumbai",yes,no,yes,yes,1,yes,Semi-Furnished
+19610000,1818,3,3,2,"Cyber City, Gurgaon",yes,no,no,no,2,no,Furnished
+24240000,2718,5,3,2,"Gachibowli, Hyderabad",yes,no,no,yes,1,no,Furnished
+17330000,1309,2,1,1,"Indiranagar, Bangalore",yes,no,no,no,0,no,Semi-Furnished
+13190000,1531,3,2,2,"Whitefield, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+27680000,3434,3,2,1,"Gachibowli, Hyderabad",yes,yes,yes,no,2,no,Furnished
+21670000,2528,4,3,2,"Whitefield, Bangalore",yes,no,yes,yes,0,no,Unfurnished
+34710000,2246,3,2,2,"Andheri East, Mumbai",yes,no,yes,yes,0,no,Semi-Furnished
+29370000,3925,5,4,1,"Kothrud, Pune",yes,no,yes,no,1,no,Unfurnished
+29950000,1870,4,4,1,"Andheri East, Mumbai",yes,yes,yes,no,2,no,Semi-Furnished
+38560000,2716,3,3,2,"Koramangala, Bangalore",yes,no,yes,no,1,no,Furnished
+22200000,2783,4,4,3,"Gachibowli, Hyderabad",no,no,no,yes,2,no,Semi-Furnished
+79830000,3172,5,3,1,"Bandra West, Mumbai",yes,no,no,no,3,no,Furnished
+17450000,1256,2,2,2,"Andheri East, Mumbai",yes,yes,yes,no,2,no,Semi-Furnished
+16770000,1865,4,4,2,"Kothrud, Pune",yes,no,yes,yes,1,no,Furnished
+32310000,2128,3,3,4,"Koramangala, Bangalore",yes,no,no,yes,1,no,Unfurnished
+21980000,3154,4,4,3,"Kothrud, Pune",yes,no,yes,no,0,no,Furnished
+17820000,2216,3,3,2,"Kothrud, Pune",yes,no,yes,no,3,no,Unfurnished
+40020000,2785,4,4,2,"Indiranagar, Bangalore",yes,no,yes,no,1,yes,Unfurnished
+12170000,1217,3,2,3,"Whitefield, Bangalore",yes,no,no,no,0,yes,Semi-Furnished
+13210000,1720,3,3,2,"Whitefield, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+26350000,2944,4,4,1,"Whitefield, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+14880000,1797,3,3,1,"Whitefield, Bangalore",yes,no,no,yes,1,no,Unfurnished
+16620000,1917,3,3,3,"Gachibowli, Hyderabad",no,no,no,yes,1,no,Semi-Furnished
+28150000,3137,5,3,3,"Whitefield, Bangalore",yes,yes,no,no,1,yes,Unfurnished
+20220000,1409,3,2,1,"Koramangala, Bangalore",yes,no,no,no,2,no,Semi-Furnished
+15830000,1522,2,2,2,"Cyber City, Gurgaon",yes,no,no,no,1,no,Unfurnished
+11610000,1172,3,3,2,"Whitefield, Bangalore",yes,yes,yes,no,1,no,Semi-Furnished
+27900000,3180,4,4,1,"Cyber City, Gurgaon",no,no,yes,yes,1,no,Semi-Furnished
+42020000,2638,4,3,4,"Koramangala, Bangalore",yes,yes,no,no,1,no,Unfurnished
+22410000,2616,5,4,1,"Whitefield, Bangalore",no,yes,no,yes,2,yes,Unfurnished
+14130000,1704,3,3,1,"Gachibowli, Hyderabad",yes,yes,no,yes,1,no,Semi-Furnished
+19160000,1141,2,2,2,"Andheri East, Mumbai",yes,no,no,no,1,yes,Furnished
+11960000,1027,3,3,2,"Cyber City, Gurgaon",yes,yes,no,no,0,no,Semi-Furnished
+23750000,2951,4,3,1,"Gachibowli, Hyderabad",yes,yes,yes,no,3,no,Unfurnished
+24220000,2296,4,4,2,"Cyber City, Gurgaon",no,no,no,yes,1,no,Unfurnished
+33080000,2442,4,3,2,"Koramangala, Bangalore",yes,no,no,no,2,no,Unfurnished
+27150000,2095,2,2,1,"Indiranagar, Bangalore",yes,no,no,yes,0,no,Furnished
+11530000,1459,3,2,1,"Gachibowli, Hyderabad",yes,no,no,no,0,no,Semi-Furnished
+19990000,1731,3,2,2,"Cyber City, Gurgaon",yes,yes,no,no,1,no,Semi-Furnished
+10580000,1335,2,2,1,"Kothrud, Pune",yes,no,yes,no,2,no,Unfurnished
+33670000,1278,3,3,4,"Bandra West, Mumbai",yes,no,no,no,1,no,Furnished
+39630000,2565,5,3,3,"Koramangala, Bangalore",yes,no,yes,yes,3,no,Unfurnished
+11730000,1060,2,2,4,"Cyber City, Gurgaon",yes,no,no,no,1,no,Semi-Furnished
+20340000,1339,2,1,1,"Koramangala, Bangalore",no,no,no,yes,1,yes,Furnished
+14940000,1765,3,2,4,"Kothrud, Pune",yes,yes,no,no,0,yes,Semi-Furnished
+21780000,1976,3,2,2,"Cyber City, Gurgaon",yes,no,no,yes,2,no,Furnished
+30580000,1167,3,2,1,"Bandra West, Mumbai",yes,yes,no,yes,0,no,Semi-Furnished
+9590000,1050,2,2,1,"Gachibowli, Hyderabad",yes,no,no,no,2,no,Furnished
+19210000,2206,3,2,1,"Gachibowli, Hyderabad",yes,no,yes,no,2,no,Furnished
+18100000,2055,3,3,2,"Whitefield, Bangalore",yes,no,no,yes,3,yes,Unfurnished
+22380000,2934,4,4,2,"Kothrud, Pune",yes,no,no,yes,1,no,Furnished
+30090000,1987,3,2,1,"Andheri East, Mumbai",no,no,no,no,1,yes,Furnished
+24570000,2281,3,3,2,"Cyber City, Gurgaon",yes,no,yes,yes,2,no,Semi-Furnished
+22590000,1487,3,2,1,"Koramangala, Bangalore",yes,no,no,yes,0,yes,Semi-Furnished
+11820000,1509,2,2,2,"Kothrud, Pune",yes,no,no,no,1,no,Unfurnished
+19050000,1209,3,2,2,"Koramangala, Bangalore",yes,no,yes,yes,0,yes,Semi-Furnished
+13560000,1492,3,2,3,"Whitefield, Bangalore",yes,no,yes,no,1,no,Unfurnished
+14430000,1722,4,3,3,"Kothrud, Pune",no,no,yes,no,0,no,Semi-Furnished
+20200000,2834,4,3,2,"Whitefield, Bangalore",no,no,no,no,0,no,Furnished
+23310000,1415,2,1,2,"Koramangala, Bangalore",no,no,no,no,1,no,Furnished
+26110000,3661,5,4,2,"Kothrud, Pune",no,no,no,no,1,no,Semi-Furnished
+18670000,2347,4,4,3,"Kothrud, Pune",yes,yes,yes,yes,1,yes,Semi-Furnished
+34550000,2187,3,3,1,"Andheri East, Mumbai",yes,no,no,yes,0,no,Semi-Furnished
+30170000,1935,2,2,1,"Andheri East, Mumbai",yes,no,yes,no,1,no,Semi-Furnished
+42650000,1813,3,2,1,"Bandra West, Mumbai",yes,no,no,yes,0,yes,Semi-Furnished
+25930000,1568,3,2,2,"Koramangala, Bangalore",yes,no,no,no,1,yes,Furnished
+19350000,1150,3,2,2,"Koramangala, Bangalore",yes,no,yes,no,1,no,Furnished
+13100000,1432,3,2,3,"Gachibowli, Hyderabad",yes,no,no,yes,1,no,Semi-Furnished
+25850000,3177,4,4,1,"Gachibowli, Hyderabad",yes,no,yes,no,2,no,Semi-Furnished
+22900000,2299,3,3,2,"Cyber City, Gurgaon",yes,no,no,no,1,no,Semi-Furnished
+35470000,3168,3,2,3,"Cyber City, Gurgaon",yes,no,no,no,2,yes,Furnished
+13510000,1554,2,2,3,"Whitefield, Bangalore",yes,yes,no,no,1,yes,Semi-Furnished
+31850000,1322,2,2,2,"Bandra West, Mumbai",yes,yes,yes,no,1,no,Unfurnished
+18050000,1929,3,3,2,"Whitefield, Bangalore",yes,no,yes,no,1,yes,Furnished
+23470000,1450,2,2,1,"Andheri East, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+45640000,2062,2,2,4,"Bandra West, Mumbai",yes,no,yes,no,1,no,Unfurnished
+11720000,1066,2,2,1,"Cyber City, Gurgaon",yes,yes,no,yes,1,yes,Semi-Furnished
+14580000,885,1,1,4,"Koramangala, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+19980000,2159,4,3,2,"Whitefield, Bangalore",yes,no,yes,no,0,yes,Furnished
+29560000,3208,5,4,2,"Whitefield, Bangalore",yes,no,yes,yes,0,no,Semi-Furnished
+17930000,2191,2,2,1,"Gachibowli, Hyderabad",yes,yes,no,yes,3,yes,Furnished
+38690000,2292,4,4,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Unfurnished
+19080000,1956,3,3,2,"Whitefield, Bangalore",yes,no,no,yes,0,no,Semi-Furnished
+15900000,2018,3,2,1,"Whitefield, Bangalore",yes,no,no,no,1,no,Unfurnished
+8990000,1130,2,2,2,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Semi-Furnished
+14360000,1469,2,2,4,"Whitefield, Bangalore",yes,no,yes,no,2,yes,Semi-Furnished
+28080000,2825,4,4,2,"Cyber City, Gurgaon",yes,no,no,no,0,no,Semi-Furnished
+11340000,1283,3,2,2,"Gachibowli, Hyderabad",yes,no,no,yes,0,no,Unfurnished
+14310000,1709,2,2,1,"Whitefield, Bangalore",yes,yes,yes,no,2,no,Unfurnished
+25690000,2805,3,3,2,"Whitefield, Bangalore",yes,no,yes,no,0,yes,Semi-Furnished
+14380000,2000,3,3,1,"Kothrud, Pune",yes,yes,yes,no,0,no,Unfurnished
+28700000,2034,3,3,2,"Koramangala, Bangalore",yes,no,yes,no,3,yes,Semi-Furnished
+28560000,1713,3,3,4,"Koramangala, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+21270000,2403,3,2,2,"Cyber City, Gurgaon",yes,no,no,no,1,yes,Semi-Furnished
+20300000,2596,4,4,1,"Kothrud, Pune",yes,no,yes,yes,0,no,Furnished
+13830000,1442,3,2,2,"Kothrud, Pune",yes,yes,no,no,0,no,Furnished
+10490000,1168,2,2,2,"Gachibowli, Hyderabad",yes,no,no,yes,0,no,Furnished
+14390000,948,2,1,2,"Koramangala, Bangalore",yes,no,no,yes,2,no,Semi-Furnished
+19930000,2255,3,3,3,"Whitefield, Bangalore",no,no,no,yes,1,yes,Semi-Furnished
+23140000,2170,3,2,3,"Cyber City, Gurgaon",yes,no,yes,yes,2,no,Semi-Furnished
+63010000,4020,4,3,2,"Andheri East, Mumbai",yes,yes,no,no,2,yes,Unfurnished
+47280000,1960,3,2,2,"Bandra West, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+14280000,1843,4,3,1,"Kothrud, Pune",yes,no,yes,yes,0,no,Semi-Furnished
+20070000,2085,3,3,1,"Whitefield, Bangalore",yes,yes,yes,no,1,no,Furnished
+51650000,2123,3,3,2,"Bandra West, Mumbai",yes,no,yes,yes,2,no,Furnished
+16970000,1796,3,3,2,"Whitefield, Bangalore",yes,yes,yes,no,2,no,Unfurnished
+32620000,1458,2,1,2,"Bandra West, Mumbai",no,yes,no,yes,0,no,Semi-Furnished
+18830000,1925,4,3,2,"Whitefield, Bangalore",yes,yes,no,no,1,yes,Unfurnished
+15790000,1901,3,2,1,"Whitefield, Bangalore",yes,no,no,no,1,no,Furnished
+16010000,1891,3,2,2,"Whitefield, Bangalore",no,no,no,no,2,no,Semi-Furnished
+18200000,2487,3,3,1,"Gachibowli, Hyderabad",yes,no,no,no,0,no,Furnished
+15180000,1913,3,2,1,"Gachibowli, Hyderabad",no,yes,no,no,1,yes,Furnished
+21130000,1177,2,2,3,"Andheri East, Mumbai",yes,yes,no,no,2,no,Furnished
+12320000,1539,3,2,1,"Kothrud, Pune",yes,no,yes,no,1,no,Furnished
+25850000,1788,3,2,2,"Koramangala, Bangalore",yes,no,no,no,1,yes,Semi-Furnished
+27460000,1944,3,3,1,"Koramangala, Bangalore",yes,no,no,no,0,no,Furnished
+25310000,2271,4,4,3,"Cyber City, Gurgaon",no,yes,yes,yes,1,no,Unfurnished
+26300000,1949,4,3,2,"Indiranagar, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+8170000,892,1,1,1,"Kothrud, Pune",yes,no,no,yes,3,no,Furnished
+10860000,1226,2,1,2,"Whitefield, Bangalore",yes,no,no,no,1,no,Furnished
+15710000,2322,2,2,2,"Kothrud, Pune",yes,no,no,no,1,yes,Semi-Furnished
+15210000,1772,3,2,4,"Whitefield, Bangalore",yes,yes,no,no,1,no,Furnished
+23270000,3044,4,3,1,"Kothrud, Pune",yes,no,no,yes,0,yes,Unfurnished
+30880000,2005,3,3,3,"Andheri East, Mumbai",yes,no,no,yes,1,no,Unfurnished
+15480000,1697,3,3,4,"Kothrud, Pune",yes,no,no,no,2,no,Furnished
+14320000,1536,2,2,3,"Whitefield, Bangalore",yes,no,no,no,2,no,Semi-Furnished
+29260000,1717,3,2,2,"Andheri East, Mumbai",yes,no,no,yes,1,no,Furnished
+17110000,2013,2,2,2,"Kothrud, Pune",yes,no,no,no,1,yes,Semi-Furnished
+29810000,1909,3,3,2,"Andheri East, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+43620000,2590,4,4,3,"Andheri East, Mumbai",yes,no,no,no,3,no,Furnished
+10900000,1098,2,2,2,"Gachibowli, Hyderabad",yes,no,yes,yes,0,yes,Furnished
+32300000,1151,2,1,2,"Bandra West, Mumbai",yes,no,yes,yes,2,no,Semi-Furnished
+31810000,1765,2,2,2,"Andheri East, Mumbai",yes,no,yes,yes,1,no,Semi-Furnished
+36700000,2279,3,2,2,"Andheri East, Mumbai",yes,yes,no,no,3,no,Furnished
+20940000,2442,3,3,3,"Kothrud, Pune",yes,no,yes,yes,2,yes,Semi-Furnished
+15100000,1557,2,2,1,"Whitefield, Bangalore",yes,no,yes,yes,2,no,Semi-Furnished
+12400000,673,2,2,3,"Koramangala, Bangalore",yes,yes,no,yes,0,yes,Unfurnished
+12960000,1574,2,1,2,"Kothrud, Pune",yes,no,no,yes,1,yes,Furnished
+17340000,2172,3,3,3,"Kothrud, Pune",yes,no,no,no,1,no,Unfurnished
+45820000,1897,3,2,2,"Bandra West, Mumbai",no,no,yes,yes,2,yes,Semi-Furnished
+37500000,2307,3,2,2,"Andheri East, Mumbai",yes,no,no,yes,0,yes,Furnished
+36220000,2791,3,2,3,"Indiranagar, Bangalore",yes,no,no,no,3,no,Semi-Furnished
+22710000,1806,3,3,1,"Indiranagar, Bangalore",no,no,no,yes,2,no,Semi-Furnished
+40170000,1634,3,2,3,"Bandra West, Mumbai",yes,no,no,yes,1,yes,Unfurnished
+23550000,1389,3,2,2,"Koramangala, Bangalore",yes,no,no,no,2,yes,Furnished
+18790000,1149,2,2,2,"Andheri East, Mumbai",yes,no,yes,no,1,no,Semi-Furnished
+10600000,1041,3,2,1,"Whitefield, Bangalore",yes,no,yes,no,1,no,Semi-Furnished
+12240000,1505,3,3,2,"Kothrud, Pune",no,no,yes,no,1,yes,Unfurnished
+19160000,2663,4,3,1,"Kothrud, Pune",no,yes,no,no,1,yes,Semi-Furnished
+20070000,2380,4,3,1,"Gachibowli, Hyderabad",yes,no,no,yes,2,yes,Unfurnished
+26330000,1608,3,3,1,"Andheri East, Mumbai",yes,yes,no,no,1,yes,Unfurnished
+56100000,3673,5,3,1,"Koramangala, Bangalore",no,no,yes,no,1,yes,Furnished
+15360000,1541,2,2,4,"Cyber City, Gurgaon",yes,no,no,no,1,no,Unfurnished
+25980000,2880,4,4,4,"Gachibowli, Hyderabad",yes,no,no,no,2,yes,Unfurnished
+47160000,3107,4,4,2,"Indiranagar, Bangalore",no,no,no,yes,0,no,Furnished
+17800000,2220,3,3,2,"Kothrud, Pune",yes,no,no,no,2,yes,Semi-Furnished
+16840000,1501,3,2,1,"Cyber City, Gurgaon",yes,no,yes,no,1,no,Semi-Furnished
+12660000,1680,3,2,2,"Kothrud, Pune",yes,no,no,no,1,no,Furnished
+17560000,2029,2,2,3,"Gachibowli, Hyderabad",no,yes,no,yes,0,no,Furnished
+21870000,1160,2,2,4,"Andheri East, Mumbai",yes,no,yes,yes,1,no,Furnished
+35430000,1344,3,3,2,"Bandra West, Mumbai",yes,no,yes,yes,2,no,Furnished
+11630000,1306,3,3,3,"Kothrud, Pune",yes,yes,no,no,1,no,Semi-Furnished
+20460000,2276,4,4,1,"Cyber City, Gurgaon",yes,no,no,yes,2,no,Furnished
+22760000,2782,4,3,4,"Whitefield, Bangalore",yes,no,no,yes,0,no,Unfurnished
+20060000,2411,4,3,1,"Whitefield, Bangalore",yes,yes,yes,no,1,no,Semi-Furnished
+37920000,2627,4,4,2,"Koramangala, Bangalore",yes,no,no,yes,3,no,Furnished
+15320000,1457,2,2,2,"Cyber City, Gurgaon",yes,no,no,no,2,no,Semi-Furnished
+12460000,1705,2,1,2,"Kothrud, Pune",no,yes,no,yes,0,no,Semi-Furnished
+14680000,1749,3,3,1,"Whitefield, Bangalore",yes,no,no,no,1,yes,Unfurnished
+33920000,2217,3,3,4,"Andheri East, Mumbai",no,no,yes,no,0,yes,Furnished
+50340000,3681,4,3,1,"Koramangala, Bangalore",yes,no,no,no,1,no,Furnished
+12910000,1520,2,1,2,"Kothrud, Pune",yes,no,no,no,2,yes,Unfurnished
+25760000,2573,5,4,1,"Cyber City, Gurgaon",yes,no,no,yes,2,no,Unfurnished
+30370000,3078,4,4,1,"Cyber City, Gurgaon",yes,no,no,yes,0,yes,Semi-Furnished
+51550000,2255,3,3,2,"Bandra West, Mumbai",no,yes,no,yes,3,no,Unfurnished
+40420000,1680,3,2,2,"Bandra West, Mumbai",yes,no,no,no,1,no,Furnished
+19540000,1413,2,1,1,"Indiranagar, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+9910000,1307,2,2,1,"Whitefield, Bangalore",yes,yes,no,no,1,no,Furnished
+10170000,896,1,1,2,"Cyber City, Gurgaon",yes,no,no,no,1,no,Furnished
+19760000,1767,2,2,3,"Cyber City, Gurgaon",yes,no,no,yes,1,no,Unfurnished
+13580000,1733,3,3,3,"Kothrud, Pune",yes,no,no,no,1,no,Furnished
+18750000,2520,4,4,1,"Kothrud, Pune",yes,no,no,no,1,yes,Semi-Furnished
+24580000,1553,3,2,2,"Andheri East, Mumbai",yes,no,yes,yes,0,no,Unfurnished
+15180000,1800,4,4,1,"Gachibowli, Hyderabad",yes,no,no,no,2,no,Furnished
+16310000,2096,3,2,1,"Kothrud, Pune",yes,no,yes,yes,1,no,Unfurnished
+19190000,2243,3,2,2,"Cyber City, Gurgaon",yes,no,no,no,0,no,Unfurnished
+30970000,2423,3,3,2,"Indiranagar, Bangalore",yes,no,no,no,2,no,Semi-Furnished
+53890000,2026,4,3,1,"Bandra West, Mumbai",yes,no,no,yes,3,yes,Furnished
+10990000,1184,2,2,1,"Whitefield, Bangalore",yes,no,no,no,3,yes,Semi-Furnished
+17870000,2177,3,3,1,"Kothrud, Pune",yes,no,no,yes,1,no,Semi-Furnished
+24790000,1515,3,2,3,"Andheri East, Mumbai",yes,no,no,no,0,no,Semi-Furnished
+35060000,2826,4,3,4,"Indiranagar, Bangalore",no,no,yes,no,1,no,Furnished
+15610000,1920,2,2,1,"Gachibowli, Hyderabad",yes,yes,no,yes,0,no,Unfurnished
+33090000,2067,3,2,1,"Andheri East, Mumbai",yes,no,yes,no,3,no,Furnished
+57050000,4137,5,3,3,"Koramangala, Bangalore",no,no,no,no,0,no,Semi-Furnished
+21280000,2437,3,2,3,"Whitefield, Bangalore",no,yes,no,yes,1,no,Furnished
+19050000,2164,3,3,2,"Gachibowli, Hyderabad",yes,no,no,yes,1,yes,Semi-Furnished
+30300000,1818,3,3,1,"Andheri East, Mumbai",no,no,yes,no,1,yes,Unfurnished
+15760000,1219,3,3,1,"Cyber City, Gurgaon",yes,no,yes,no,2,yes,Furnished
+31020000,1774,3,3,2,"Andheri East, Mumbai",yes,yes,no,yes,1,yes,Furnished
+14700000,1407,3,2,2,"Cyber City, Gurgaon",yes,no,no,yes,0,yes,Semi-Furnished
+48970000,3206,4,3,1,"Andheri East, Mumbai",yes,no,no,yes,1,yes,Semi-Furnished
+40510000,2174,3,3,2,"Andheri East, Mumbai",yes,yes,no,no,1,no,Semi-Furnished
+28520000,2791,3,3,1,"Cyber City, Gurgaon",yes,no,no,yes,0,no,Semi-Furnished
+42360000,1538,2,1,3,"Bandra West, Mumbai",yes,no,yes,yes,1,no,Furnished
+13450000,1442,2,2,1,"Whitefield, Bangalore",yes,no,no,no,1,yes,Unfurnished
+19100000,2358,3,3,1,"Whitefield, Bangalore",no,no,no,no,2,no,Unfurnished
+13770000,1388,3,3,2,"Gachibowli, Hyderabad",yes,no,yes,yes,3,no,Semi-Furnished
+25700000,1637,2,1,2,"Andheri East, Mumbai",no,no,no,no,2,yes,Unfurnished
+24450000,3258,4,4,4,"Gachibowli, Hyderabad",no,yes,yes,no,3,no,Semi-Furnished
+24720000,1659,3,3,2,"Indiranagar, Bangalore",yes,yes,no,yes,0,yes,Semi-Furnished
+11410000,1128,2,2,1,"Whitefield, Bangalore",yes,no,yes,yes,0,no,Furnished
+8090000,979,1,1,2,"Whitefield, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+17410000,1079,2,2,1,"Koramangala, Bangalore",no,no,yes,yes,2,no,Semi-Furnished
+48050000,2847,4,4,3,"Andheri East, Mumbai",yes,no,no,no,3,no,Furnished
+22580000,1571,2,2,2,"Koramangala, Bangalore",yes,yes,no,no,2,no,Semi-Furnished
+90620000,4090,5,3,2,"Bandra West, Mumbai",yes,no,no,yes,0,no,Unfurnished
+22510000,3090,4,4,1,"Kothrud, Pune",yes,no,no,yes,3,no,Semi-Furnished
+48350000,3523,3,3,2,"Koramangala, Bangalore",yes,no,no,no,1,yes,Semi-Furnished
+39360000,2650,4,4,3,"Andheri East, Mumbai",yes,no,yes,no,0,yes,Unfurnished
+23010000,2317,4,3,3,"Cyber City, Gurgaon",yes,no,no,no,1,no,Furnished
+22850000,1424,2,1,1,"Koramangala, Bangalore",yes,yes,yes,no,0,no,Semi-Furnished
+28080000,1904,3,3,1,"Andheri East, Mumbai",no,no,no,yes,1,no,Unfurnished
+25130000,2394,3,3,3,"Cyber City, Gurgaon",yes,no,no,no,1,yes,Semi-Furnished
+20020000,2595,4,4,4,"Kothrud, Pune",no,no,no,yes,1,no,Semi-Furnished
+13120000,1259,3,3,1,"Whitefield, Bangalore",yes,no,no,no,1,yes,Furnished
+16370000,1784,3,3,2,"Kothrud, Pune",yes,yes,yes,yes,2,no,Unfurnished
+47320000,1854,4,4,1,"Bandra West, Mumbai",yes,yes,yes,yes,1,no,Semi-Furnished
+25760000,1829,2,2,3,"Indiranagar, Bangalore",yes,no,yes,no,1,no,Unfurnished
+30770000,1317,2,2,1,"Bandra West, Mumbai",no,no,no,no,2,yes,Semi-Furnished
+24480000,3377,4,4,1,"Kothrud, Pune",yes,yes,yes,yes,2,no,Semi-Furnished
+47310000,1764,4,3,3,"Bandra West, Mumbai",no,yes,yes,yes,0,no,Unfurnished
+19340000,1350,2,2,1,"Koramangala, Bangalore",yes,yes,no,no,1,no,Semi-Furnished
+54730000,3406,4,4,2,"Andheri East, Mumbai",yes,no,no,no,1,no,Semi-Furnished
+44230000,3091,3,2,2,"Indiranagar, Bangalore",yes,yes,no,yes,0,no,Semi-Furnished
+16150000,1999,3,2,1,"Whitefield, Bangalore",yes,no,no,yes,1,no,Unfurnished
+10710000,975,2,2,2,"Whitefield, Bangalore",yes,no,yes,yes,2,no,Semi-Furnished
+14540000,1620,3,2,2,"Whitefield, Bangalore",no,no,no,no,0,yes,Semi-Furnished
+10780000,1049,2,1,1,"Whitefield, Bangalore",yes,yes,no,no,2,no,Furnished
+18540000,2259,3,2,2,"Whitefield, Bangalore",yes,no,yes,no,2,no,Unfurnished
+14330000,1582,2,2,3,"Gachibowli, Hyderabad",yes,yes,yes,no,2,yes,Furnished
+26290000,1889,3,3,3,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+47610000,3300,4,3,1,"Koramangala, Bangalore",no,no,no,no,2,no,Semi-Furnished
+13060000,1543,3,2,1,"Kothrud, Pune",yes,no,yes,no,1,yes,Semi-Furnished
+51180000,2227,4,4,1,"Bandra West, Mumbai",yes,no,no,yes,1,no,Semi-Furnished
+18290000,2447,2,2,2,"Gachibowli, Hyderabad",yes,no,yes,yes,0,yes,Furnished
+39550000,2817,5,4,2,"Indiranagar, Bangalore",yes,no,no,no,0,no,Semi-Furnished
+28620000,1843,3,3,2,"Indiranagar, Bangalore",yes,no,no,no,2,no,Unfurnished
+15750000,1778,3,3,1,"Whitefield, Bangalore",yes,no,no,yes,1,no,Unfurnished
+25250000,1764,3,2,1,"Indiranagar, Bangalore",yes,no,no,no,1,no,Furnished
+29970000,2155,3,3,2,"Indiranagar, Bangalore",yes,no,no,no,0,no,Unfurnished
+42540000,3046,4,3,2,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+15640000,1736,2,2,1,"Whitefield, Bangalore",yes,no,no,yes,0,yes,Unfurnished
+8300000,728,1,1,2,"Whitefield, Bangalore",yes,no,no,yes,2,yes,Semi-Furnished
+58040000,2538,4,4,1,"Bandra West, Mumbai",yes,no,no,no,0,yes,Semi-Furnished
+25730000,1950,3,2,3,"Indiranagar, Bangalore",yes,no,no,yes,0,no,Unfurnished
+34120000,2261,3,2,3,"Koramangala, Bangalore",yes,no,yes,yes,1,yes,Unfurnished
+18210000,1063,2,1,1,"Andheri East, Mumbai",yes,yes,no,no,1,yes,Semi-Furnished
+12530000,1584,2,2,1,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Furnished
+21620000,2469,4,3,2,"Whitefield, Bangalore",yes,no,no,yes,1,no,Semi-Furnished
+14400000,1204,3,3,1,"Cyber City, Gurgaon",no,no,yes,yes,3,no,Semi-Furnished
+37410000,2225,3,2,2,"Andheri East, Mumbai",yes,no,no,no,1,yes,Furnished
+19030000,1884,4,4,3,"Whitefield, Bangalore",yes,no,no,no,0,yes,Furnished
+15640000,1469,2,2,2,"Cyber City, Gurgaon",yes,yes,yes,no,1,no,Unfurnished
+12020000,1429,3,3,3,"Kothrud, Pune",no,no,no,yes,2,no,Furnished
+12050000,1322,2,2,2,"Whitefield, Bangalore",yes,yes,yes,no,1,no,Semi-Furnished
+26790000,1947,3,2,1,"Indiranagar, Bangalore",no,yes,yes,no,0,no,Furnished
+18460000,2023,3,2,2,"Cyber City, Gurgaon",yes,no,no,no,2,no,Semi-Furnished
+16130000,1679,3,3,2,"Gachibowli, Hyderabad",yes,no,no,no,1,yes,Furnished
+19160000,1293,2,2,2,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Furnished
+30630000,2204,3,2,1,"Indiranagar, Bangalore",yes,no,yes,yes,0,no,Unfurnished
+39530000,2554,4,3,1,"Koramangala, Bangalore",no,yes,no,no,0,no,Unfurnished
+53000000,2336,3,2,4,"Bandra West, Mumbai",yes,no,yes,no,1,no,Furnished
+55860000,3574,3,2,1,"Andheri East, Mumbai",yes,no,yes,no,0,no,Semi-Furnished
+29580000,1791,4,4,4,"Koramangala, Bangalore",yes,no,yes,yes,1,yes,Semi-Furnished
+67290000,2943,4,3,4,"Bandra West, Mumbai",yes,no,no,no,1,no,Unfurnished
+11820000,1518,2,2,3,"Gachibowli, Hyderabad",yes,no,no,no,1,no,Unfurnished
+14890000,1434,3,2,2,"Whitefield, Bangalore",yes,no,no,yes,3,no,Semi-Furnished
+27040000,1987,3,3,2,"Indiranagar, Bangalore",no,yes,no,no,2,no,Semi-Furnished
+26210000,3164,4,3,3,"Gachibowli, Hyderabad",yes,no,yes,no,2,no,Unfurnished
+12630000,1724,4,4,1,"Kothrud, Pune",yes,no,no,no,0,no,Furnished
+18630000,1063,2,2,2,"Andheri East, Mumbai",yes,yes,no,no,0,no,Semi-Furnished
+43130000,2538,4,3,2,"Andheri East, Mumbai",yes,yes,no,no,1,yes,Unfurnished
+17340000,1857,4,4,2,"Whitefield, Bangalore",yes,no,yes,yes,0,no,Semi-Furnished
+49700000,2107,3,3,2,"Bandra West, Mumbai",no,no,no,yes,3,yes,Semi-Furnished
+23430000,1460,2,2,1,"Andheri East, Mumbai",yes,yes,no,no,0,no,Semi-Furnished
+30400000,1981,2,2,2,"Indiranagar, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+14370000,1119,2,1,3,"Indiranagar, Bangalore",yes,no,no,no,1,no,Semi-Furnished
+51020000,3395,4,4,1,"Koramangala, Bangalore",no,no,yes,no,1,no,Semi-Furnished
+22070000,2695,4,3,4,"Whitefield, Bangalore",yes,no,no,yes,0,no,Semi-Furnished
+29140000,1951,2,1,2,"Koramangala, Bangalore",yes,no,yes,no,1,yes,Semi-Furnished
+35100000,2514,5,4,3,"Indiranagar, Bangalore",yes,no,no,yes,1,no,Unfurnished
+23840000,1519,2,2,2,"Koramangala, Bangalore",yes,no,no,yes,2,yes,Furnished
+23300000,2655,4,4,3,"Whitefield, Bangalore",yes,no,yes,yes,0,no,Semi-Furnished
+13180000,1698,3,3,1,"Kothrud, Pune",yes,no,no,yes,2,no,Semi-Furnished
+29760000,1657,3,3,3,"Andheri East, Mumbai",yes,yes,no,yes,2,no,Semi-Furnished
+11080000,1353,2,2,1,"Gachibowli, Hyderabad",yes,no,yes,yes,1,no,Furnished
+24430000,2194,3,2,3,"Cyber City, Gurgaon",yes,no,no,yes,2,yes,Semi-Furnished
+46130000,1922,4,3,4,"Bandra West, Mumbai",yes,no,yes,yes,0,yes,Unfurnished

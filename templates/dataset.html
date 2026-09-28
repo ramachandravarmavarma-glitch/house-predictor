@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block title %}Dataset Explorer | House Predictor{% endblock %}
+{% block header_title %}Housing Dataset Explorer{% endblock %}
+{% block header_subtitle %}Auditable Real-Estate Transaction Records &amp; Statistical Profiling{% endblock %}
+
+{% block content %}
+<!-- KPI Meta Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-icon indigo"><i class="fa-solid fa-list-ol"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Total Rows</span>
+      <span class="kpi-value" id="metaTotalRows">{{ overview.total_rows }}</span>
+      <span class="kpi-meta"><i class="fa-solid fa-check"></i> Validated Records</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon cyan"><i class="fa-solid fa-table-columns"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Total Columns</span>
+      <span class="kpi-value">{{ overview.total_columns }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">1 Target + 12 Features</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon emerald"><i class="fa-solid fa-shield-halved"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Missing Values</span>
+      <span class="kpi-value" style="color: #34d399;">{{ overview.missing_values }}</span>
+      <span class="kpi-meta"><i class="fa-solid fa-circle-check"></i> 100% Complete</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon amber"><i class="fa-solid fa-arrow-down-1-9"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Numerical Features</span>
+      <span class="kpi-value">{{ overview.numerical_features|length }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Scaled with Standardizer</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon rose"><i class="fa-solid fa-tags"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Categorical Features</span>
+      <span class="kpi-value">{{ overview.categorical_features|length }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">One-Hot Encoded</span>
+    </div>
+  </div>
+</div>
+
+<!-- Dataset Search & Table Section -->
+<div class="card-glass" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <h3 style="font-size: 1.25rem;">Property Transaction Records</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted);">
+        Verified real-estate data used for training and testing the Linear Regression model.
+      </p>
+    </div>
+
+    <!-- Search Input -->
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="position: relative; width: 280px;">
+        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+        <input type="text" id="datasetSearchInput" class="form-control" style="padding-left: 2.5rem;" placeholder="Search location, area, price..." oninput="handleDatasetSearch()">
+      </div>
+      <button type="button" class="btn-estate btn-secondary btn-sm" onclick="clearDatasetSearch()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="estate-table">
+      <thead>
+        <tr>
+          <th>Price (INR)</th>
+          <th>Location</th>
+          <th>Area (sqft)</th>
+          <th>BHK</th>
+          <th>Baths</th>
+          <th>Floors</th>
+          <th>Parking</th>
+          <th>Furnishing</th>
+          <th>Main Road</th>
+          <th>A/C</th>
+          <th>Prime</th>
+        </tr>
+      </thead>
+      <tbody id="datasetTableBody">
+        {% for row in initial_page.records %}
+        <tr>
+          <td><strong style="color: #34d399;">{{ row.formatted_price }}</strong></td>
+          <td><strong style="color: #ffffff;">{{ row.location }}</strong></td>
+          <td>{{ row.area }}</td>
+          <td>{{ row.bedrooms }}</td>
+          <td>{{ row.bathrooms }}</td>
+          <td>{{ row.floors }}</td>
+          <td>{{ row.parking }}</td>
+          <td><span class="badge-status ready" style="font-size: 0.7rem;">{{ row.furnishing_status }}</span></td>
+          <td style="text-transform: capitalize;">{{ row.main_road }}</td>
+          <td style="text-transform: capitalize;">{{ row.air_conditioning }}</td>
+          <td style="text-transform: capitalize;">{{ row.preferred_area }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); flex-wrap: wrap; gap: 1rem;">
+    <div style="font-size: 0.85rem; color: var(--text-muted);" id="paginationInfo">
+      Showing Page <strong id="curPageNum">1</strong> of <strong id="totalPageNum">{{ initial_page.total_pages }}</strong> ({{ initial_page.total_records }} records)
+    </div>
+
+    <div style="display: flex; gap: 0.5rem;">
+      <button type="button" class="btn-estate btn-secondary btn-sm" id="btnPrevPage" onclick="changeDatasetPage(-1)">
+        <i class="fa-solid fa-chevron-left"></i> Previous
+      </button>
+      <button type="button" class="btn-estate btn-secondary btn-sm" id="btnNextPage" onclick="changeDatasetPage(1)">
+        Next <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Numerical Feature Statistics Table -->
+<div class="card-glass" style="margin-bottom: 2rem;">
+  <div style="margin-bottom: 1.25rem;">
+    <h3 style="font-size: 1.15rem;">Descriptive Numerical Statistics</h3>
+    <p style="font-size: 0.82rem; color: var(--text-muted);">Parametric distributions computed across the full dataset.</p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="estate-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Mean</th>
+          <th>Std Dev</th>
+          <th>Min</th>
+          <th>Median (50%)</th>
+          <th>Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for col, s in overview.num_stats.items() %}
+        <tr>
+          <td><strong style="color: var(--accent-cyan);">{{ col }}</strong></td>
+          <td>{% if col == 'price' %}{{ s.mean|inr }}{% else %}{{ s.mean }}{% endif %}</td>
+          <td>{% if col == 'price' %}{{ s.std|inr }}{% else %}{{ s.std }}{% endif %}</td>
+          <td>{% if col == 'price' %}{{ s.min|inr }}{% else %}{{ s.min }}{% endif %}</td>
+          <td>{% if col == 'price' %}{{ s.median|inr }}{% else %}{{ s.median }}{% endif %}</td>
+          <td>{% if col == 'price' %}{{ s.max|inr }}{% else %}{{ s.max }}{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dataset.js') }}"></script>
+{% endblock %}

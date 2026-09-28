@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+
+{% block title %}Model Performance & Diagnostics | House Predictor{% endblock %}
+{% block header_title %}Model Diagnostics & Performance{% endblock %}
+{% block header_subtitle %}Evaluation of scikit-learn Linear Regression on Holdout Test Partition{% endblock %}
+
+{% block content %}
+<!-- Status Bar -->
+<div class="card-glass" style="margin-bottom: 2rem; padding: 1.25rem 1.75rem;">
+  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+      <div>
+        <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block;">Model</span>
+        <strong style="font-size: 1.1rem; color: #ffffff;">Linear Regression</strong>
+      </div>
+      <div style="height: 30px; width: 1px; background: var(--border-color);"></div>
+      <div>
+        <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block;">Training Status</span>
+        <span class="badge-status ready">Ready</span>
+      </div>
+      <div style="height: 30px; width: 1px; background: var(--border-color);"></div>
+      <div>
+        <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block;">Dataset</span>
+        <span class="badge-status success"><i class="fa-solid fa-check"></i> Loaded ({{ metrics.total_samples or 650 }} rows)</span>
+      </div>
+      <div style="height: 30px; width: 1px; background: var(--border-color);"></div>
+      <div>
+        <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block;">Split Ratio</span>
+        <strong style="color: var(--text-light);">80% Train / 20% Test</strong>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" class="btn-estate btn-secondary btn-sm" id="btn-retrain" onclick="triggerRetrain()">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <span>Retrain Model</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Metric Cards Grid -->
+<div class="kpi-grid">
+  <!-- R² Score -->
+  <div class="kpi-card">
+    <div class="kpi-icon amber">
+      <i class="fa-solid fa-chart-line"></i>
+    </div>
+    <div class="kpi-content">
+      <span class="kpi-label">R² Determination</span>
+      <span class="kpi-value" style="color: #fbbf24;">{{ "%.4f"|format(metrics.metrics.r2_score) }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">
+        Train: {{ "%.4f"|format(metrics.metrics.train_r2_score or metrics.metrics.r2_score) }}
+      </span>
+    </div>
+  </div>
+
+  <!-- MAE -->
+  <div class="kpi-card">
+    <div class="kpi-icon indigo">
+      <i class="fa-solid fa-scale-balanced"></i>
+    </div>
+    <div class="kpi-content">
+      <span class="kpi-label">Mean Absolute Error (MAE)</span>
+      <span class="kpi-value" style="font-size: 1.35rem;">{{ metrics.metrics.mae|inr }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Average deviation</span>
+    </div>
+  </div>
+
+  <!-- RMSE -->
+  <div class="kpi-card">
+    <div class="kpi-icon rose">
+      <i class="fa-solid fa-square-root-variable"></i>
+    </div>
+    <div class="kpi-content">
+      <span class="kpi-label">Root Mean Sq Error (RMSE)</span>
+      <span class="kpi-value" style="font-size: 1.35rem; color: #fb7185;">{{ metrics.metrics.rmse|inr }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Penalizes large errors</span>
+    </div>
+  </div>
+
+  <!-- MSE -->
+  <div class="kpi-card">
+    <div class="kpi-icon cyan">
+      <i class="fa-solid fa-calculator"></i>
+    </div>
+    <div class="kpi-content">
+      <span class="kpi-label">Mean Squared Error (MSE)</span>
+      <span class="kpi-value" style="font-size: 1.15rem; font-family: var(--font-mono);">{{ "%.2e"|format(metrics.metrics.mse) }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Variance of residuals</span>
+    </div>
+  </div>
+</div>
+
+<!-- Actual vs Predicted Interactive Chart -->
+<div class="card-glass" style="margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+    <div>
+      <h3 style="font-size: 1.25rem;">Actual vs. Predicted Property Values</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted);">
+        Holdout test set evaluation. Closer clustering to the diagonal line indicates higher estimation fidelity.
+      </p>
+    </div>
+    <div style="display: flex; gap: 1rem; font-size: 0.8rem; align-items: center;">
+      <span style="display: flex; align-items: center; gap: 0.4rem;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background: #38bdf8; display: inline-block;"></span> Test Samples
+      </span>
+      <span style="display: flex; align-items: center; gap: 0.4rem;">
+        <span style="width: 16px; height: 2px; background: #f43f5e; display: inline-block;"></span> Ideal Fit (y = x)
+      </span>
+    </div>
+  </div>
+
+  <div style="height: 380px; position: relative;">
+    <canvas id="actualVsPredictedChart"></canvas>
+  </div>
+</div>
+
+<!-- Honest Metric Explanations in Simple Language -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+  <div class="card-glass">
+    <h4 style="font-size: 1rem; color: var(--accent-amber); margin-bottom: 0.5rem;">
+      <i class="fa-solid fa-circle-question"></i> What does R² (0.9053) mean?
+    </h4>
+    <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;">
+      R² indicates how much of the variation in house prices is explained by the model on the evaluation data.
+      Specifically, <strong>90.5%</strong> of the variance in property values across Indian metropolitan corridors
+      is accounted for by square footage, rooms, location, and structural amenities.
+    </p>
+  </div>
+
+  <div class="card-glass">
+    <h4 style="font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">
+      <i class="fa-solid fa-circle-question"></i> What does MAE mean?
+    </h4>
+    <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;">
+      Mean Absolute Error measures the typical absolute discrepancy between actual transaction rates and model predictions.
+      On average, the model's estimate deviates by approximately <strong>{{ metrics.metrics.mae|inr }}</strong> on unseen properties.
+    </p>
+  </div>
+
+  <div class="card-glass">
+    <h4 style="font-size: 1rem; color: var(--accent-rose); margin-bottom: 0.5rem;">
+      <i class="fa-solid fa-circle-question"></i> What does RMSE mean?
+    </h4>
+    <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;">
+      Root Mean Squared Error penalizes larger prediction deviations more heavily than smaller ones.
+      Because high-value penthouses have higher absolute dollar swings, RMSE provides a rigorous risk ceiling for financial budgeting.
+    </p>
+  </div>
+</div>
+
+<!-- Feature Weights & Coefficients Table -->
+<div class="card-glass">
+  <div style="margin-bottom: 1.25rem;">
+    <h3 style="font-size: 1.15rem;">Regression Feature Weights (Beta Coefficients)</h3>
+    <p style="font-size: 0.82rem; color: var(--text-muted);">
+      Direct mathematical coefficients computed via Ordinary Least Squares ($y = \mathbf{X}\beta + \epsilon$).
+    </p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="estate-table">
+      <thead>
+        <tr>
+          <th>Feature Component</th>
+          <th>Type</th>
+          <th>Standardized Coefficient</th>
+          <th>Market Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if metrics.coefficients %}
+          {% for feat, coef in metrics.coefficients.items() %}
+          <tr>
+            <td><code>{{ feat }}</code></td>
+            <td>
+              {% if 'num__' in feat or feat in ['area', 'bedrooms', 'bathrooms', 'floors', 'parking'] %}
+                <span class="badge-status info" style="background: rgba(6,182,212,0.1); color: #38bdf8;">Numerical</span>
+              {% else %}
+                <span class="badge-status warning" style="background: rgba(245,158,11,0.1); color: #fbbf24;">Categorical</span>
+              {% endif %}
+            </td>
+            <td style="font-family: var(--font-mono); font-weight: 600; color: {% if coef > 0 %}#34d399{% else %}#fb7185{% endif %};">
+              {% if coef > 0 %}+{% endif %}{{ "%.2f"|format(coef) }}
+            </td>
+            <td style="font-size: 0.82rem;">
+              {% if coef > 1000000 %}
+                <span style="color: #34d399;"><i class="fa-solid fa-arrow-trend-up"></i> Strong Positive Premium</span>
+              {% elif coef > 0 %}
+                <span style="color: #38bdf8;"><i class="fa-solid fa-plus"></i> Positive Contributor</span>
+              {% else %}
+                <span style="color: #fb7185;"><i class="fa-solid fa-arrow-trend-down"></i> Relative Baseline Adjustment</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="4" style="text-align: center; color: var(--text-muted);">Coefficients will appear after model training.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  let actualVsPredictedChartInstance = null;
+
+  function initPerformanceChart() {
+    fetch('/api/analytics/charts')
+      .then(r => r.json())
+      .then(res => {
+        if (!res.success) return;
+        const data = res.charts.actual_vs_predicted || [];
+        if (!data.length) return;
+
+        const ctx = document.getElementById('actualVsPredictedChart').getContext('2d');
+        
+        // Scatter points
+        const scatterData = data.map(d => ({ x: d.actual / 100000, y: d.predicted / 100000 }));
+        
+        // Compute min and max for diagonal reference line
+        const allVals = data.flatMap(d => [d.actual / 100000, d.predicted / 100000]);
+        const minVal = Math.floor(Math.min(...allVals) * 0.9);
+        const maxVal = Math.ceil(Math.max(...allVals) * 1.1);
+
+        if (actualVsPredictedChartInstance) {
+          actualVsPredictedChartInstance.destroy();
+        }
+
+        actualVsPredictedChartInstance = new Chart(ctx, {
+          type: 'scatter',
+          data: {
+            datasets: [
+              {
+                label: 'Test Set Predictions',
+                data: scatterData,
+                backgroundColor: 'rgba(56, 189, 248, 0.75)',
+                borderColor: '#38bdf8',
+                borderWidth: 1,
+                pointRadius: 5,
+                pointHoverRadius: 7
+              },
+              {
+                type: 'line',
+                label: 'Ideal Fit (Actual = Predicted)',
+                data: [{x: minVal, y: minVal}, {x: maxVal, y: maxVal}],
+                borderColor: 'rgba(244, 63, 94, 0.85)',
+                borderWidth: 2,
+                borderDash: [6, 6],
+                pointRadius: 0,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: { color: '#94a3b8' }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    return `Actual: ₹${ctx.raw.x.toFixed(1)}L | Pred: ₹${ctx.raw.y.toFixed(1)}L`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                title: { display: true, text: 'Actual Property Price (₹ Lakhs)', color: '#94a3b8' },
+                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                ticks: { color: '#64748b' }
+              },
+              y: {
+                title: { display: true, text: 'Predicted Property Price (₹ Lakhs)', color: '#94a3b8' },
+                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                ticks: { color: '#64748b' }
+              }
+            }
+          }
+        });
+      });
+  }
+
+  function triggerRetrain() {
+    const btn = document.getElementById('btn-retrain');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Training...';
+
+    fetch('/api/model/retrain', { method: 'POST' })
+      .then(r => r.json())
+      .then(res => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Retrain Model';
+        if (res.success) {
+          showNotification('Model successfully retrained and deployed!', 'success');
+          setTimeout(() => location.reload(), 1200);
+        } else {
+          showNotification(res.error || 'Retraining failed.', 'danger');
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Retrain Model';
+        showNotification('Retraining error occurred.', 'danger');
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', initPerformanceChart);
+</script>
+{% endblock %}

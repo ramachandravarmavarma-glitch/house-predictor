@@ -1,0 +1,571 @@
+{
+  "model_name": "Linear Regression",
+  "algorithm": "Ordinary Least Squares (OLS)",
+  "framework": "scikit-learn",
+  "trained_at": "2026-09-28 22:11:46",
+  "dataset_file": "data/house_prices.csv",
+  "total_samples": 650,
+  "train_samples": 520,
+  "test_samples": 130,
+  "input_features": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "floors",
+    "parking",
+    "location",
+    "main_road",
+    "guestroom",
+    "basement",
+    "air_conditioning",
+    "preferred_area",
+    "furnishing_status"
+  ],
+  "encoded_features": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "floors",
+    "parking",
+    "location_Andheri East, Mumbai",
+    "location_Bandra West, Mumbai",
+    "location_Cyber City, Gurgaon",
+    "location_Gachibowli, Hyderabad",
+    "location_Indiranagar, Bangalore",
+    "location_Koramangala, Bangalore",
+    "location_Kothrud, Pune",
+    "location_Whitefield, Bangalore",
+    "main_road_no",
+    "main_road_yes",
+    "guestroom_no",
+    "guestroom_yes",
+    "basement_no",
+    "basement_yes",
+    "air_conditioning_no",
+    "air_conditioning_yes",
+    "preferred_area_no",
+    "preferred_area_yes",
+    "furnishing_status_Furnished",
+    "furnishing_status_Semi-Furnished",
+    "furnishing_status_Unfurnished"
+  ],
+  "intercept": 26105752.01884651,
+  "coefficients": {
+    "area": 6989944.85625966,
+    "bedrooms": 241422.8463951161,
+    "bathrooms": 93666.48213595338,
+    "floors": 59709.44239837225,
+    "parking": 353049.59161796723,
+    "location_Andheri East, Mumbai": 6286292.552545206,
+    "location_Bandra West, Mumbai": 21146746.207762025,
+    "location_Cyber City, Gurgaon": -5138880.906499786,
+    "location_Gachibowli, Hyderabad": -9848607.35691082,
+    "location_Indiranagar, Bangalore": 2209172.903243822,
+    "location_Koramangala, Bangalore": 4250079.552973401,
+    "location_Kothrud, Pune": -10486883.348391922,
+    "location_Whitefield, Bangalore": -8417919.604721924,
+    "main_road_no": -300998.8331130288,
+    "main_road_yes": 300998.8331130355,
+    "guestroom_no": 18855.942505118826,
+    "guestroom_yes": -18855.942505110575,
+    "basement_no": -94960.58718935032,
+    "basement_yes": 94960.5871893495,
+    "air_conditioning_no": -69693.94165862763,
+    "air_conditioning_yes": 69693.94165863165,
+    "preferred_area_no": -196780.05607256203,
+    "preferred_area_yes": 196780.05607256028,
+    "furnishing_status_Furnished": 40462.90310757422,
+    "furnishing_status_Semi-Furnished": -123476.3347206703,
+    "furnishing_status_Unfurnished": 83013.43161309822
+  },
+  "metrics": {
+    "r2_score": 0.9053,
+    "train_r2_score": 0.9302,
+    "mae": 2793272.88,
+    "mse": 15094221832954.28,
+    "rmse": 3885128.29
+  },
+  "actual_vs_predicted_samples": [
+    {
+      "actual": 30400000.0,
+      "predicted": 27394410.89,
+      "residual": 3005589.11,
+      "area": 1981,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 2
+    },
+    {
+      "actual": 31990000.0,
+      "predicted": 39846463.21,
+      "residual": -7856463.21,
+      "area": 4056,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 4
+    },
+    {
+      "actual": 14580000.0,
+      "predicted": 17423435.21,
+      "residual": -2843435.21,
+      "area": 885,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 1
+    },
+    {
+      "actual": 37250000.0,
+      "predicted": 36394234.25,
+      "residual": 855765.75,
+      "area": 2451,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 25510000.0,
+      "predicted": 31128401.62,
+      "residual": -5618401.62,
+      "area": 3136,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 37920000.0,
+      "predicted": 38344698.86,
+      "residual": -424698.86,
+      "area": 2627,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 24800000.0,
+      "predicted": 23451748.99,
+      "residual": 1348251.01,
+      "area": 2543,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 5
+    },
+    {
+      "actual": 25500000.0,
+      "predicted": 26125434.98,
+      "residual": -625434.98,
+      "area": 1790,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 36090000.0,
+      "predicted": 33110476.12,
+      "residual": 2979523.88,
+      "area": 2003,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 5920000.0,
+      "predicted": 1355941.98,
+      "residual": 4564058.02,
+      "area": 728,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 1
+    },
+    {
+      "actual": 34120000.0,
+      "predicted": 33756175.06,
+      "residual": 363824.94,
+      "area": 2261,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 31690000.0,
+      "predicted": 29126567.27,
+      "residual": 2563432.73,
+      "area": 1876,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 20440000.0,
+      "predicted": 19437793.63,
+      "residual": 1002206.37,
+      "area": 1864,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 3
+    },
+    {
+      "actual": 18040000.0,
+      "predicted": 21837397.7,
+      "residual": -3797397.7,
+      "area": 1023,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 12020000.0,
+      "predicted": 9283653.02,
+      "residual": 2736346.98,
+      "area": 1429,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 18090000.0,
+      "predicted": 17626073.46,
+      "residual": 463926.54,
+      "area": 2162,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 17450000.0,
+      "predicted": 24164322.49,
+      "residual": -6714322.49,
+      "area": 1256,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 2
+    },
+    {
+      "actual": 23840000.0,
+      "predicted": 25523647.26,
+      "residual": -1683647.26,
+      "area": 1519,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 2
+    },
+    {
+      "actual": 19480000.0,
+      "predicted": 20954873.87,
+      "residual": -1474873.87,
+      "area": 2416,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 16880000.0,
+      "predicted": 17508751.82,
+      "residual": -628751.82,
+      "area": 1938,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 79060000.0,
+      "predicted": 64834247.98,
+      "residual": 14225752.02,
+      "area": 3593,
+      "location": "Bandra West, Mumbai",
+      "bedrooms": 4
+    },
+    {
+      "actual": 47100000.0,
+      "predicted": 45299464.9,
+      "residual": 1800535.1,
+      "area": 3399,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 5
+    },
+    {
+      "actual": 12320000.0,
+      "predicted": 10485915.61,
+      "residual": 1834084.39,
+      "area": 1539,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 30470000.0,
+      "predicted": 32233365.39,
+      "residual": -1763365.39,
+      "area": 1953,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 15180000.0,
+      "predicted": 14676974.89,
+      "residual": 503025.11,
+      "area": 1800,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 4
+    },
+    {
+      "actual": 15320000.0,
+      "predicted": 14765733.76,
+      "residual": 554266.24,
+      "area": 1457,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 2
+    },
+    {
+      "actual": 20670000.0,
+      "predicted": 23777957.63,
+      "residual": -3107957.63,
+      "area": 1384,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 19480000.0,
+      "predicted": 19206173.05,
+      "residual": 273826.95,
+      "area": 2038,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 13060000.0,
+      "predicted": 10758895.56,
+      "residual": 2301104.44,
+      "area": 1543,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 24610000.0,
+      "predicted": 25060135.79,
+      "residual": -450135.79,
+      "area": 1778,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 2
+    },
+    {
+      "actual": 45820000.0,
+      "predicted": 46232352.74,
+      "residual": -412352.74,
+      "area": 1897,
+      "location": "Bandra West, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 11610000.0,
+      "predicted": 11217269.42,
+      "residual": 392730.58,
+      "area": 1614,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 15590000.0,
+      "predicted": 12320442.83,
+      "residual": 3269557.17,
+      "area": 1639,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 2
+    },
+    {
+      "actual": 29810000.0,
+      "predicted": 30694014.45,
+      "residual": -884014.45,
+      "area": 1909,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 31020000.0,
+      "predicted": 30289237.47,
+      "residual": 730762.53,
+      "area": 1774,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 42430000.0,
+      "predicted": 43563254.01,
+      "residual": -1133254.01,
+      "area": 3322,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 30360000.0,
+      "predicted": 27858047.29,
+      "residual": 2501952.71,
+      "area": 1755,
+      "location": "Koramangala, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 35430000.0,
+      "predicted": 40722079.24,
+      "residual": -5292079.24,
+      "area": 1344,
+      "location": "Bandra West, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 27650000.0,
+      "predicted": 27267526.12,
+      "residual": 382473.88,
+      "area": 1537,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 3
+    },
+    {
+      "actual": 34660000.0,
+      "predicted": 32624980.12,
+      "residual": 2035019.88,
+      "area": 2338,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 25080000.0,
+      "predicted": 23792703.81,
+      "residual": 1287296.19,
+      "area": 2220,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 3
+    },
+    {
+      "actual": 79830000.0,
+      "predicted": 61122789.17,
+      "residual": 18707210.83,
+      "area": 3172,
+      "location": "Bandra West, Mumbai",
+      "bedrooms": 5
+    },
+    {
+      "actual": 25760000.0,
+      "predicted": 28238403.92,
+      "residual": -2478403.92,
+      "area": 2573,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 5
+    },
+    {
+      "actual": 20050000.0,
+      "predicted": 21583064.08,
+      "residual": -1533064.08,
+      "area": 1943,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 3
+    },
+    {
+      "actual": 13830000.0,
+      "predicted": 8873149.58,
+      "residual": 4956850.42,
+      "area": 1442,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 11150000.0,
+      "predicted": 8462802.59,
+      "residual": 2687197.41,
+      "area": 1311,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 3
+    },
+    {
+      "actual": 11610000.0,
+      "predicted": 8552517.0,
+      "residual": 3057483.0,
+      "area": 1172,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 30100000.0,
+      "predicted": 35266880.19,
+      "residual": -5166880.19,
+      "area": 3327,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 5
+    },
+    {
+      "actual": 26540000.0,
+      "predicted": 31973577.26,
+      "residual": -5433577.26,
+      "area": 2964,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 5
+    },
+    {
+      "actual": 19930000.0,
+      "predicted": 20136471.85,
+      "residual": -206471.85,
+      "area": 2255,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 13180000.0,
+      "predicted": 12506126.66,
+      "residual": 673873.34,
+      "area": 1698,
+      "location": "Kothrud, Pune",
+      "bedrooms": 3
+    },
+    {
+      "actual": 17200000.0,
+      "predicted": 15721337.33,
+      "residual": 1478662.67,
+      "area": 1738,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 4
+    },
+    {
+      "actual": 10600000.0,
+      "predicted": 6992734.06,
+      "residual": 3607265.94,
+      "area": 1041,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 17660000.0,
+      "predicted": 21622470.82,
+      "residual": -3962470.82,
+      "area": 2361,
+      "location": "Whitefield, Bangalore",
+      "bedrooms": 3
+    },
+    {
+      "actual": 38540000.0,
+      "predicted": 36311941.19,
+      "residual": 2228058.81,
+      "area": 2305,
+      "location": "Andheri East, Mumbai",
+      "bedrooms": 4
+    },
+    {
+      "actual": 40800000.0,
+      "predicted": 44298526.64,
+      "residual": -3498526.64,
+      "area": 1681,
+      "location": "Bandra West, Mumbai",
+      "bedrooms": 4
+    },
+    {
+      "actual": 21830000.0,
+      "predicted": 25541740.29,
+      "residual": -3711740.29,
+      "area": 2841,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 4
+    },
+    {
+      "actual": 17930000.0,
+      "predicted": 19005249.87,
+      "residual": -1075249.87,
+      "area": 2191,
+      "location": "Gachibowli, Hyderabad",
+      "bedrooms": 2
+    },
+    {
+      "actual": 29910000.0,
+      "predicted": 27135645.23,
+      "residual": 2774354.77,
+      "area": 1919,
+      "location": "Indiranagar, Bangalore",
+      "bedrooms": 2
+    },
+    {
+      "actual": 22260000.0,
+      "predicted": 22723206.89,
+      "residual": -463206.89,
+      "area": 2137,
+      "location": "Cyber City, Gurgaon",
+      "bedrooms": 3
+    }
+  ],
+  "status": "Ready"
+}

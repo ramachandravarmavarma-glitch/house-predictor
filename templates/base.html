@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}House Predictor - Intelligent House Price Prediction Platform{% endblock %}</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z'/></svg>">
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Application CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+  <div class="app-container">
+    {% if not hide_sidebar %}
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="brand-header">
+        <div class="brand-logo-icon">
+          <i class="fa-solid fa-house-chimney-crack"></i>
+        </div>
+        <div>
+          <div class="brand-title">HOUSE PREDICTOR</div>
+          <div class="brand-subtitle">Intelligent ML Valuation</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="{{ url_for('main.dashboard') }}" class="nav-item {% if request.endpoint == 'main.dashboard' %}active{% endif %}" id="nav-dashboard">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="{{ url_for('prediction.predict_page') }}" class="nav-item {% if request.endpoint == 'prediction.predict_page' %}active{% endif %}" id="nav-prediction">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Price Prediction</span>
+        </a>
+        <a href="{{ url_for('dataset.dataset_page') }}" class="nav-item {% if request.endpoint == 'dataset.dataset_page' %}active{% endif %}" id="nav-dataset">
+          <i class="fa-solid fa-database"></i>
+          <span>Dataset</span>
+        </a>
+        <a href="{{ url_for('main.performance') }}" class="nav-item {% if request.endpoint == 'main.performance' %}active{% endif %}" id="nav-performance">
+          <i class="fa-solid fa-microchip"></i>
+          <span>Model Performance</span>
+        </a>
+        <a href="{{ url_for('history.history_page') }}" class="nav-item {% if request.endpoint == 'history.history_page' %}active{% endif %}" id="nav-history">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Prediction History</span>
+        </a>
+        <a href="{{ url_for('analytics.analytics_page') }}" class="nav-item {% if request.endpoint == 'analytics.analytics_page' %}active{% endif %}" id="nav-analytics">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Analytics</span>
+        </a>
+        <a href="{{ url_for('main.documentation') }}" class="nav-item {% if request.endpoint == 'main.documentation' %}active{% endif %}" id="nav-docs">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Documentation</span>
+        </a>
+        <a href="{{ url_for('main.settings') }}" class="nav-item {% if request.endpoint == 'main.settings' %}active{% endif %}" id="nav-settings">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar User Profile -->
+      <div class="sidebar-user">
+        <div class="user-avatar">
+          {% if current_user %}
+            {{ current_user.username[:1].upper() }}
+          {% else %}
+            G
+          {% endif %}
+        </div>
+        <div class="user-info">
+          {% if current_user %}
+            <span class="user-name">{{ current_user.username }}</span>
+            <span class="user-role">{{ current_user.role or 'Analyst' }}</span>
+          {% else %}
+            <span class="user-name">Guest Analyst</span>
+            <span class="user-role">Public Mode</span>
+          {% endif %}
+        </div>
+        <div style="margin-left: auto;">
+          {% if current_user %}
+            <a href="{{ url_for('auth.logout') }}" title="Logout" style="color: var(--text-muted); font-size: 1rem;">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          {% else %}
+            <a href="{{ url_for('auth.login') }}" title="Log In" style="color: var(--accent-cyan); font-size: 1rem;">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </aside>
+    {% endif %}
+
+    <!-- Main Workspace Layout -->
+    <div class="app-main">
+      {% if not hide_sidebar %}
+      <header class="app-header">
+        <div class="page-title-block">
+          <h1>{% block header_title %}Dashboard{% endblock %}</h1>
+          <div class="page-subtitle">{% block header_subtitle %}Intelligent House Price Prediction Platform{% endblock %}</div>
+        </div>
+
+        <div class="header-actions">
+          {% block header_actions %}
+          <a href="{{ url_for('prediction.predict_page') }}" class="btn-estate btn-primary btn-sm">
+            <i class="fa-solid fa-bolt"></i>
+            <span>New Valuation</span>
+          </a>
+          {% endblock %}
+        </div>
+      </header>
+      {% endif %}
+
+      <main class="page-content">
+        <!-- Flash Alert Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-container">
+              {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid {% if category == 'success' %}fa-circle-check{% elif category == 'danger' %}fa-triangle-exclamation{% else %}fa-circle-info{% endif %}"></i>
+                    <span>{{ message }}</span>
+                  </div>
+                  <button type="button" onclick="this.parentElement.remove()" style="background:none; border:none; color:inherit; cursor:pointer;">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <!-- Global Application Scripts -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

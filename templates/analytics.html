@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Market & Model Analytics | House Predictor{% endblock %}
+{% block header_title %}Market & Model Analytics{% endblock %}
+{% block header_subtitle %}Empirical Real-Estate Trends & Statistical Distributions via Chart.js{% endblock %}
+
+{% block content %}
+<!-- Analytics Charts Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+
+  <!-- Chart 1: Price Distribution -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Price Distribution</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Frequency distribution of property prices (INR)</span>
+      </div>
+      <span class="badge-status info" style="background: rgba(99,102,241,0.1); color: #818cf8;">Histogram</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="priceDistributionChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 2: Area vs Price Correlation -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Carpet Area vs. Price</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Scatter relationship between sq ft and valuation</span>
+      </div>
+      <span class="badge-status ready" style="font-size: 0.72rem;">Positive Correlation</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="areaVsPriceChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 3: Bedrooms vs Price -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Bedrooms vs. Average Price</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Average valuation by BHK configuration</span>
+      </div>
+      <span class="badge-status info" style="background: rgba(6,182,212,0.1); color: #38bdf8;">Bar Analysis</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="bedroomsVsPriceChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 4: Location Comparison -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Micro-Market Premium by Location</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Average property values across top metro sectors</span>
+      </div>
+      <span class="badge-status warning" style="font-size: 0.72rem;">Geographic Index</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="locationVsPriceChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 5: Furnishing Impact -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Furnishing Status Impact</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Comparison across Furnished, Semi, and Unfurnished</span>
+      </div>
+      <span class="badge-status ready">Market Premium</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="furnishingVsPriceChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 6: Holdout Actual vs Predicted -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.15rem;">Actual vs. Predicted Model Fidelity</h3>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Validation residuals on holdout test partition</span>
+      </div>
+      <span class="badge-status success" style="font-size: 0.72rem;">R² 0.9053</span>
+    </div>
+    <div style="height: 300px; position: relative;">
+      <canvas id="analyticsActualPredictedChart"></canvas>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}

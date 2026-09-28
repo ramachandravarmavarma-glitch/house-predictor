@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% set hide_sidebar = true %}
+
+{% block title %}House Predictor - Intelligent House Price Prediction Platform{% endblock %}
+
+{% block head_extra %}
+<style>
+  .landing-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .landing-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .landing-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .landing-links a {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .landing-links a:hover {
+    color: #ffffff;
+  }
+  .preview-mockup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    text-align: left;
+    padding: 1.5rem;
+  }
+  @media (max-width: 850px) {
+    .preview-mockup {
+      grid-template-columns: 1fr;
+    }
+    .landing-nav {
+      padding: 1rem 1.5rem;
+    }
+    .landing-links {
+      display: none;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Top Minimal Navigation -->
+<header class="landing-nav">
+  <div class="landing-brand">
+    <div class="brand-logo-icon">
+      <i class="fa-solid fa-house-chimney-crack"></i>
+    </div>
+    <div>
+      <div class="brand-title" style="font-size: 1.35rem;">HOUSE PREDICTOR</div>
+      <div class="brand-subtitle">Intelligent ML Valuation</div>
+    </div>
+  </div>
+
+  <nav class="landing-links">
+    <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('dataset.dataset_page') }}">Dataset</a>
+    <a href="{{ url_for('main.performance') }}">Model Performance</a>
+    <a href="{{ url_for('analytics.analytics_page') }}">Analytics</a>
+    <a href="{{ url_for('main.documentation') }}">Documentation</a>
+  </nav>
+
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    {% if current_user %}
+      <a href="{{ url_for('main.dashboard') }}" class="btn-estate btn-primary btn-sm">
+        <i class="fa-solid fa-gauge-high"></i> Open Dashboard
+      </a>
+    {% else %}
+      <a href="{{ url_for('auth.login') }}" class="btn-estate btn-secondary btn-sm">Log In</a>
+      <a href="{{ url_for('auth.register') }}" class="btn-estate btn-primary btn-sm">Get Started</a>
+    {% endif %}
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-pill">
+    <i class="fa-solid fa-sparkles"></i>
+    <span>Project 3: QSkill Python Development Internship</span>
+  </div>
+
+  <h1 class="hero-title">Predict Property Value With Machine Learning.</h1>
+  
+  <p class="hero-subtitle">
+    Estimate property prices using data-driven machine learning and real estate analytics.
+    Powered by a verified Linear Regression model trained on real-world housing characteristics.
+  </p>
+
+  <div class="hero-cta-group">
+    <a href="{{ url_for('prediction.predict_page') }}" class="btn-estate btn-primary btn-lg" id="btn-hero-predict">
+      <i class="fa-solid fa-calculator"></i>
+      <span>Predict Property Price</span>
+    </a>
+    <a href="{{ url_for('analytics.analytics_page') }}" class="btn-estate btn-secondary btn-lg" id="btn-hero-analytics">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Explore Analytics</span>
+    </a>
+  </div>
+
+  <!-- Dashboard / Model Visual Preview -->
+  <div class="hero-preview-wrapper">
+    <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem; margin-bottom: 1.2rem;">
+      <div style="display: flex; gap: 0.5rem;">
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+      </div>
+      <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">house_predictor.internal / analytics-engine v2.6</span>
+      <span class="badge-status ready">Model Active (R² {{ "%.2f"|format(model_r2 * 100) }}%)</span>
+    </div>
+
+    <div class="preview-mockup">
+      <!-- Valuation Card Preview -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-cyan); font-weight: 700;">Live Estimation</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Whitefield, Bangalore</span>
+        </div>
+        <div style="font-size: 2.2rem; font-family: var(--font-display); font-weight: 800; color: #ffffff;">₹1,61,70,000</div>
+        <div style="font-size: 0.9rem; color: var(--accent-emerald); font-weight: 600; margin-bottom: 1.2rem;">Valuation Band: ₹1.46 Cr - ₹1.77 Cr</div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; font-size: 0.82rem; background: rgba(0,0,0,0.25); padding: 0.8rem; border-radius: 8px;">
+          <div><span style="color: var(--text-muted); display:block;">Area</span><strong>1,850 sq ft</strong></div>
+          <div><span style="color: var(--text-muted); display:block;">Layout</span><strong>3 BHK / 2 Bath</strong></div>
+          <div><span style="color: var(--text-muted); display:block;">Furnishing</span><strong>Semi-Furnished</strong></div>
+        </div>
+      </div>
+
+      <!-- Live Analytics Preview -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+          <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-violet); font-weight: 700;">Regression Analysis</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Ordinary Least Squares</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Trained on <strong>{{ overview.total_rows }}</strong> verified property transactions with <strong>{{ overview.total_columns - 1 }}</strong> regression features.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 8px;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Determination (R²)</div>
+            <div style="font-size: 1.3rem; font-weight: 700; color: #38bdf8;">{{ "%.4f"|format(model_r2) }}</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 8px;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Inference Speed</div>
+            <div style="font-size: 1.3rem; font-weight: 700; color: #34d399;">&lt; 15 ms</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Value Pillars Section -->
+<section style="max-width: 1200px; margin: 3rem auto 5rem; padding: 0 2rem;">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <h2 style="font-size: 2rem;">Engineered for Property Intelligence</h2>
+    <p style="color: var(--text-secondary);">Scientific real estate valuation powered by transparent, verifiable machine learning algorithms.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+    <div class="card-glass">
+      <div class="kpi-icon indigo" style="margin-bottom: 1rem;"><i class="fa-solid fa-brain"></i></div>
+      <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Trained Machine Learning</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary);">
+        Real Linear Regression algorithm with scikit-learn standard scaling, one-hot encoding, and verifiable feature weights.
+      </p>
+    </div>
+
+    <div class="card-glass">
+      <div class="kpi-icon cyan" style="margin-bottom: 1rem;"><i class="fa-solid fa-chart-pie"></i></div>
+      <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Live Analytics & Charts</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary);">
+        Interactive Chart.js visualizations for price distributions, area-price correlations, and actual vs predicted evaluation plots.
+      </p>
+    </div>
+
+    <div class="card-glass">
+      <div class="kpi-icon emerald" style="margin-bottom: 1rem;"><i class="fa-solid fa-database"></i></div>
+      <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Auditable Dataset Explorer</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary);">
+        Search, filter, and inspect the raw training dataset with live distribution summaries, feature statistics, and missing value checks.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

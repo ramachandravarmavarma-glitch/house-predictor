@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block title %}Prediction History | House Predictor{% endblock %}
+{% block header_title %}Prediction History & Records{% endblock %}
+{% block header_subtitle %}Auditable Log of Inferences Stored via SQLAlchemy SQLite Database{% endblock %}
+
+{% block content %}
+<!-- History KPI Summary -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-icon indigo"><i class="fa-solid fa-list-check"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Logged Valuations</span>
+      <span class="kpi-value" id="histTotalCount">{{ stats.total_predictions }}</span>
+      <span class="kpi-meta"><i class="fa-solid fa-database"></i> SQLite Table</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon cyan"><i class="fa-solid fa-calculator"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Average Estimate</span>
+      <span class="kpi-value" style="font-size: 1.45rem;">{{ stats.avg_price }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Session Portfolio</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon emerald"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Peak Valuation</span>
+      <span class="kpi-value" style="font-size: 1.45rem; color: #34d399;">{{ stats.max_price }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Highest record</span>
+    </div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-icon amber"><i class="fa-solid fa-arrow-down-left-and-up-right-to-center"></i></div>
+    <div class="kpi-content">
+      <span class="kpi-label">Floor Valuation</span>
+      <span class="kpi-value" style="font-size: 1.45rem; color: #fbbf24;">{{ stats.min_price }}</span>
+      <span class="kpi-meta" style="color: var(--text-muted);">Lowest record</span>
+    </div>
+  </div>
+</div>
+
+<!-- History Table Card -->
+<div class="card-glass">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <h3 style="font-size: 1.25rem;">Stored Valuations</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted);">Manage your real estate estimation archives.</p>
+    </div>
+
+    <!-- Filter & Action Controls -->
+    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+      <!-- Search Input -->
+      <div style="position: relative; width: 240px;">
+        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+        <input type="text" id="historySearchInput" class="form-control" style="padding-left: 2.3rem;" placeholder="Search history..." oninput="handleHistoryFilter()">
+      </div>
+
+      <!-- Sort Dropdown -->
+      <select class="form-select" id="historySortSelect" style="width: 170px;" onchange="handleHistoryFilter()">
+        <option value="date_desc">Newest First</option>
+        <option value="date_asc">Oldest First</option>
+        <option value="price_desc">Highest Price</option>
+        <option value="price_asc">Lowest Price</option>
+      </select>
+
+      <!-- Clear All Button -->
+      {% if predictions %}
+      <button type="button" class="btn-estate btn-danger btn-sm" onclick="confirmClearHistory()">
+        <i class="fa-solid fa-trash-can"></i> Clear All
+      </button>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="estate-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Property Location</th>
+          <th>Area (sqft)</th>
+          <th>Specifications</th>
+          <th>Predicted Value</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="historyTableBody">
+        {% if predictions %}
+          {% for p in predictions %}
+          <tr id="pred-row-{{ p.id }}">
+            <td style="font-size: 0.82rem; color: var(--text-muted);">{{ p.created_at }}</td>
+            <td><strong style="color: #ffffff;">{{ p.location }}</strong></td>
+            <td>{{ p.area }} sq ft</td>
+            <td>{{ p.bedrooms }} BHK &bull; {{ p.bathrooms }} Bath</td>
+            <td><strong style="color: #34d399; font-size: 1rem;">{{ p.formatted_price }}</strong></td>
+            <td style="text-align: right;">
+              <button type="button" class="btn-estate btn-secondary btn-sm" onclick="viewHistoryDetails({{ p.id }})">
+                <i class="fa-solid fa-eye"></i> Details
+              </button>
+              <button type="button" class="btn-estate btn-danger btn-sm" onclick="deleteHistoryItem({{ p.id }})">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr id="noRecordsRow">
+            <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+              No prediction records saved yet. <a href="{{ url_for('prediction.predict_page') }}">Estimate a property now</a>.
+            </td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal for Viewing Details -->
+<div class="estate-modal" id="historyDetailsModal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 class="modal-title"><i class="fa-solid fa-house"></i> Property Valuation Details</h3>
+      <button type="button" class="modal-close" onclick="closeHistoryModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="historyModalBody"></div>
+    <div class="modal-footer">
+      <button type="button" class="btn-estate btn-secondary btn-sm" onclick="closeHistoryModal()">Close</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  let filterTimeout = null;
+
+  function handleHistoryFilter() {
+    clearTimeout(filterTimeout);
+    filterTimeout = setTimeout(() => {
+      const search = document.getElementById('historySearchInput').value.trim();
+      const sortBy = document.getElementById('historySortSelect').value;
+
+      fetch(`/api/history?search=${encodeURIComponent(search)}&sort_by=${sortBy}`)
+        .then(r => r.json())
+        .then(res => {
+          if (!res.success) return;
+          renderHistoryRows(res.predictions);
+        });
+    }, 250);
+  }
+
+  function renderHistoryRows(predictions) {
+    const tbody = document.getElementById('historyTableBody');
+    if (!predictions || predictions.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+            No matching prediction records found.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = predictions.map(p => `
+      <tr id="pred-row-${p.id}">
+        <td style="font-size: 0.82rem; color: var(--text-muted);">${p.created_at}</td>
+        <td><strong style="color: #ffffff;">${p.location}</strong></td>
+        <td>${p.area} sq ft</td>
+        <td>${p.bedrooms} BHK &bull; ${p.bathrooms} Bath</td>
+        <td><strong style="color: #34d399; font-size: 1rem;">${p.formatted_price}</strong></td>
+        <td style="text-align: right;">
+          <button type="button" class="btn-estate btn-secondary btn-sm" onclick="viewHistoryDetails(${p.id})">
+            <i class="fa-solid fa-eye"></i> Details
+          </button>
+          <button type="button" class="btn-estate btn-danger btn-sm" onclick="deleteHistoryItem(${p.id})">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function viewHistoryDetails(id) {
+    const modal = document.getElementById('historyDetailsModal');
+    const body = document.getElementById('historyModalBody');
+    modal.classList.add('active');
+    body.innerHTML = '<div style="text-align:center; padding:2rem;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--accent-cyan);"></i></div>';
+
+    fetch('/api/prediction/' + id)
+      .then(r => r.json())
+      .then(res => {
+        if (!res.success) {
+          body.innerHTML = '<p style="color:#fb7185;">Error loading details</p>';
+          return;
+        }
+        const p = res.prediction;
+        const d = p.input_data;
+        body.innerHTML = `
+          <div style="text-align:center; margin-bottom:1.5rem; background:rgba(255,255,255,0.02); padding:1.25rem; border-radius:12px; border:1px solid var(--border-color);">
+            <div style="font-size:0.75rem; color:var(--accent-cyan); text-transform:uppercase; font-weight:700;">Prediction Output</div>
+            <div style="font-size:2.2rem; font-family:var(--font-display); font-weight:800; color:#34d399; margin:0.3rem 0;">${p.formatted_price}</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">${p.model_name} (R² ${p.model_r2}) &bull; ${p.created_at}</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; font-size:0.88rem;">
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Location</span>
+              <strong>${d.location || 'N/A'}</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Area</span>
+              <strong>${d.area} sq ft</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Bedrooms</span>
+              <strong>${d.bedrooms} BHK</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Bathrooms</span>
+              <strong>${d.bathrooms}</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Floors</span>
+              <strong>${d.floors}</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Parking</span>
+              <strong>${d.parking} Spaces</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Furnishing</span>
+              <strong>${d.furnishing_status}</strong>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px;">
+              <span style="color:var(--text-muted); display:block; font-size:0.72rem;">Prime Area</span>
+              <strong style="text-transform:capitalize;">${d.preferred_area}</strong>
+            </div>
+          </div>
+        `;
+      });
+  }
+
+  function closeHistoryModal() {
+    document.getElementById('historyDetailsModal').classList.remove('active');
+  }
+
+  function deleteHistoryItem(id) {
+    if (!confirm('Are you sure you want to delete this prediction record?')) return;
+
+    fetch('/api/history/' + id, { method: 'DELETE' })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
+          showNotification('Prediction record deleted.', 'info');
+          const row = document.getElementById('pred-row-' + id);
+          if (row) row.remove();
+        } else {
+          showNotification(res.error || 'Failed to delete record.', 'danger');
+        }
+      });
+  }
+
+  function confirmClearHistory() {
+    if (!confirm('Are you sure you want to clear your ENTIRE prediction history? This action cannot be undone.')) return;
+
+    fetch('/api/history/clear', { method: 'POST' })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
+          showNotification(res.message, 'success');
+          setTimeout(() => location.reload(), 1000);
+        } else {
+          showNotification('Failed to clear history.', 'danger');
+        }
+      });
+  }
+</script>
+{% endblock %}

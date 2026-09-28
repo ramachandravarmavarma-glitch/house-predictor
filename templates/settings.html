@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Settings & System Status | House Predictor{% endblock %}
+{% block header_title %}System Settings & Diagnostics{% endblock %}
+{% block header_subtitle %}Profile Information, Theme Customization, and Machine Learning Environment Health{% endblock %}
+
+{% block content %}
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;">
+
+  <!-- Card 1: User Profile -->
+  <div class="card-glass">
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="user-avatar" style="width: 54px; height: 54px; font-size: 1.35rem;">
+        {% if user %}{{ user.username[:1].upper() }}{% else %}G{% endif %}
+      </div>
+      <div>
+        <h3 style="font-size: 1.2rem;">{% if user %}{{ user.username }}{% else %}Guest Analyst{% endif %}</h3>
+        <span style="font-size: 0.8rem; color: var(--accent-cyan);">{% if user %}{{ user.role }}{% else %}Public Access{% endif %}</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Email Account</span>
+        <strong>{% if user %}{{ user.email }}{% else %}guest@estateai.local{% endif %}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Predictions Executed</span>
+        <strong style="color: #34d399;">{% if user %}{{ user.predictions|length }}{% else %}0{% endif %}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Member Since</span>
+        <span>{% if user %}{{ user.created_at.strftime('%b %d, %Y') }}{% else %}Current Session{% endif %}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="color: var(--text-muted);">Authentication State</span>
+        <span class="badge-status ready">{% if user %}Active Session{% else %}Public Mode{% endif %}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Model Information & Maintenance -->
+  <div class="card-glass">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+      <h3 style="font-size: 1.2rem;">Model Information</h3>
+      <span class="badge-status ready">Trained &amp; Ready</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Estimator Architecture</span>
+        <strong>LinearRegression (OLS)</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Test Score (R²)</span>
+        <strong style="color: #fbbf24;">{{ "%.4f"|format(metrics.metrics.r2_score or 0.9053) }}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Model Artifact</span>
+        <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-emerald);">models/house_price_model.pkl</span>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="color: var(--text-muted);">Preprocessor Artifact</span>
+        <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">models/preprocessor.pkl</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 1.5rem; text-align: right;">
+      <button type="button" class="btn-estate btn-primary btn-sm" id="btn-retrain-settings" onclick="triggerRetrainSettings()">
+        <i class="fa-solid fa-rotate"></i> Retrain &amp; Refresh Model
+      </button>
+    </div>
+  </div>
+
+  <!-- Card 3: Dataset Information -->
+  <div class="card-glass">
+    <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem;">Dataset Repository</h3>
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Local File Path</span>
+        <span style="font-family: var(--font-mono); font-size: 0.8rem;">data/house_prices.csv</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Validated Samples</span>
+        <strong>{{ overview.total_rows }} Rows</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Features Available</span>
+        <strong>{{ overview.total_columns }} Columns</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="color: var(--text-muted);">File Size &amp; Modified</span>
+        <span>{{ overview.file_size_kb }} KB ({{ overview.last_modified }})</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: System Diagnostics -->
+  <div class="card-glass">
+    <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem;">Platform Runtime</h3>
+    <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem;">
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Python Version</span>
+        <strong>{{ system_info.python_version }}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Flask Server</span>
+        <strong>v{{ system_info.flask_version }}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted);">Scikit-Learn ML</span>
+        <strong style="color: var(--accent-cyan);">v{{ system_info.sklearn_version }}</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="color: var(--text-muted);">Database Layer</span>
+        <span>{{ system_info.database }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function triggerRetrainSettings() {
+    const btn = document.getElementById('btn-retrain-settings');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Retraining Pipeline...';
+
+    fetch('/api/model/retrain', { method: 'POST' })
+      .then(r => r.json())
+      .then(res => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-rotate"></i> Retrain & Refresh Model';
+        if (res.success) {
+          showNotification('Model successfully trained, evaluated, and redeployed!', 'success');
+          setTimeout(() => location.reload(), 1200);
+        } else {
+          showNotification(res.error || 'Retraining failed.', 'danger');
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-rotate"></i> Retrain & Refresh Model';
+        showNotification('Retraining error occurred.', 'danger');
+      });
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+
+{% block title %}Predict Property Value | House Predictor{% endblock %}
+{% block header_title %}Intelligent Property Valuation{% endblock %}
+{% block header_subtitle %}Linear Regression Price Estimation Engine with Live Real-Estate Features{% endblock %}
+
+{% block content %}
+<div style="max-width: 980px; margin: 0 auto;">
+
+  <!-- Quick Presets Bar -->
+  <div class="card-glass" style="margin-bottom: 1.5rem; padding: 1rem 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light);">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i>
+        <strong>Load Sample Property:</strong>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button type="button" class="btn-estate btn-secondary btn-sm" onclick="loadPreset('bangalore')">
+          <i class="fa-solid fa-city"></i> Bangalore Tech Flat
+        </button>
+        <button type="button" class="btn-estate btn-secondary btn-sm" onclick="loadPreset('mumbai')">
+          <i class="fa-solid fa-gem"></i> Mumbai Luxury Residence
+        </button>
+        <button type="button" class="btn-estate btn-secondary btn-sm" onclick="loadPreset('pune')">
+          <i class="fa-solid fa-house-user"></i> Pune Family Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Valuation Form Card -->
+  <div class="card-glass" id="predictionFormContainer">
+    <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+      <h2 style="font-size: 1.35rem;">Enter Property Specifications</h2>
+      <p style="font-size: 0.84rem; color: var(--text-muted);">
+        Every parameter maps directly to the active Linear Regression machine learning model.
+      </p>
+    </div>
+
+    <form id="predictionForm" onsubmit="handlePredictionSubmit(event)">
+      
+      <!-- Section 1: Location & Dimensions -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+          <i class="fa-solid fa-map-location-dot"></i> 1. Location &amp; Dimensions
+        </h4>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="location">
+              <i class="fa-solid fa-location-dot"></i> Property Location
+            </label>
+            <select class="form-select" id="location" name="location" required>
+              <option value="" disabled selected>Select Micro-Market Corridor</option>
+              {% for loc in locations %}
+                <option value="{{ loc }}">{{ loc }}</option>
+              {% endfor %}
+            </select>
+            <div class="form-hint">Prime tech and business micro-markets</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="area">
+              <i class="fa-solid fa-vector-square"></i> Carpet / Built-up Area (Sq Ft)
+            </label>
+            <input type="number" class="form-control" id="area" name="area" min="500" max="10000" step="10" placeholder="e.g. 1850" required>
+            <div class="form-hint">Valid range: 500 to 10,000 sq ft</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Architectural Layout -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+          <i class="fa-solid fa-cubes"></i> 2. Architectural Layout
+        </h4>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="bedrooms"><i class="fa-solid fa-bed"></i> Bedrooms</label>
+            <select class="form-select" id="bedrooms" name="bedrooms" required>
+              <option value="1">1 BHK</option>
+              <option value="2">2 BHK</option>
+              <option value="3" selected>3 BHK</option>
+              <option value="4">4 BHK</option>
+              <option value="5">5+ BHK</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bathrooms"><i class="fa-solid fa-bath"></i> Bathrooms</label>
+            <select class="form-select" id="bathrooms" name="bathrooms" required>
+              <option value="1">1 Bathroom</option>
+              <option value="2" selected>2 Bathrooms</option>
+              <option value="3">3 Bathrooms</option>
+              <option value="4">4+ Bathrooms</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="floors"><i class="fa-solid fa-layer-group"></i> Total Floors</label>
+            <select class="form-select" id="floors" name="floors" required>
+              <option value="1">1 Floor (Ground)</option>
+              <option value="2" selected>2 Floors</option>
+              <option value="3">3 Floors</option>
+              <option value="4">4 Floors</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="parking"><i class="fa-solid fa-car"></i> Parking Spaces</label>
+            <select class="form-select" id="parking" name="parking" required>
+              <option value="0">0 Spaces</option>
+              <option value="1" selected>1 Space</option>
+              <option value="2">2 Spaces</option>
+              <option value="3">3+ Spaces</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Amenities & Micro-Environment -->
+      <div style="margin-bottom: 2rem;">
+        <h4 style="font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+          <i class="fa-solid fa-star"></i> 3. Amenities &amp; Status
+        </h4>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="furnishing_status"><i class="fa-solid fa-couch"></i> Furnishing</label>
+            <select class="form-select" id="furnishing_status" name="furnishing_status" required>
+              {% for opt in furnishing_options %}
+                <option value="{{ opt }}" {% if opt == 'Semi-Furnished' %}selected{% endif %}>{{ opt }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="main_road"><i class="fa-solid fa-road"></i> Main Road Facing</label>
+            <select class="form-select" id="main_road" name="main_road" required>
+              <option value="yes" selected>Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="air_conditioning"><i class="fa-solid fa-snowflake"></i> Central A/C</label>
+            <select class="form-select" id="air_conditioning" name="air_conditioning" required>
+              <option value="yes" selected>Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guestroom"><i class="fa-solid fa-door-open"></i> Guestroom</label>
+            <select class="form-select" id="guestroom" name="guestroom" required>
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="basement"><i class="fa-solid fa-dungeon"></i> Basement</label>
+            <select class="form-select" id="basement" name="basement" required>
+              <option value="no" selected>No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="preferred_area"><i class="fa-solid fa-award"></i> Prime Sector Zone</label>
+            <select class="form-select" id="preferred_area" name="preferred_area" required>
+              <option value="yes" selected>Yes (Prime)</option>
+              <option value="no">No (Standard)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div style="text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <button type="submit" class="btn-estate btn-primary btn-lg" id="btn-estimate" style="min-width: 280px;">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Estimate Property Value</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Multi-stage Estimation Loader -->
+    <div class="estimation-loader" id="estimationLoader">
+      <div class="loader-spinner"></div>
+      <div class="loader-stage-text" id="loaderStageText">Analyzing property characteristics...</div>
+      <div class="loader-subtext" id="loaderSubtext">Executing scikit-learn Linear Regression inference pipeline</div>
+    </div>
+  </div>
+
+  <!-- Dynamic Result Card -->
+  <div class="result-card-container" id="resultCardContainer">
+    <div class="result-card">
+      <div class="result-header">
+        <span class="result-tag"><i class="fa-solid fa-circle-check"></i> Machine Learning Valuation Complete</span>
+        <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Estimated Property Value</div>
+        <div class="result-price-main" id="resPriceMain">₹0</div>
+        <div class="result-price-words" id="resPriceWords"></div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+          Valuation Band: <strong id="resValuationBand" style="color: var(--text-light);">₹0 - ₹0</strong>
+        </div>
+      </div>
+
+      <!-- Meta Grid -->
+      <div class="result-meta-grid">
+        <div class="result-meta-item">
+          <div class="result-meta-label">Rate / Sq Ft</div>
+          <div class="result-meta-val" id="resRateSqft" style="color: var(--accent-cyan);">₹0</div>
+        </div>
+        <div class="result-meta-item">
+          <div class="result-meta-label">Model Used</div>
+          <div class="result-meta-val" id="resModelUsed">Linear Regression</div>
+        </div>
+        <div class="result-meta-item">
+          <div class="result-meta-label">Model R² Score</div>
+          <div class="result-meta-val" id="resModelR2" style="color: #fbbf24;">0.9053</div>
+        </div>
+        <div class="result-meta-item">
+          <div class="result-meta-label">Timestamp</div>
+          <div class="result-meta-val" id="resTimestamp" style="font-size: 0.85rem;">Just now</div>
+        </div>
+      </div>
+
+      <!-- Input Summary Specs Box -->
+      <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+        <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 0.75rem;">
+          Evaluated Property Profile
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; font-size: 0.86rem;" id="resSummaryChips">
+          <!-- Dynamic chips inserted via JS -->
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <button type="button" class="btn-estate btn-primary" onclick="resetFormForNewEstimate()">
+          <i class="fa-solid fa-plus"></i> Predict Another Property
+        </button>
+        <a href="{{ url_for('history.history_page') }}" class="btn-estate btn-secondary">
+          <i class="fa-solid fa-clock-rotate-left"></i> View Prediction History
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/prediction.js') }}"></script>
+{% endblock %}
